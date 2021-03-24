@@ -22,6 +22,26 @@ import javax.persistence.Table;
 @Entity
 @Table (name="Productos")
 public class Productos implements Serializable {
+
+    public Productos(int id, String nombre, float precioactual, int stock, Categoria categoria, Proveedor proveedor) {
+        this.id = id;
+        this.nombre = nombre;
+        this.precioactual = precioactual;
+        this.stock = stock;
+        this.categoria = categoria;
+        this.proveedor = proveedor;
+    }
+
+    public Productos(String nombre, float precioactual, int stock, Categoria categoria, Proveedor proveedor) {
+        this.nombre = nombre;
+        this.precioactual = precioactual;
+        this.stock = stock;
+        this.categoria = categoria;
+        this.proveedor = proveedor;
+    }
+
+    public Productos() {
+    }
     
     
     
