@@ -6,12 +6,14 @@
 package entidades;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -114,7 +116,16 @@ public class Cliente implements Serializable {
         this.telefono2 = telefono2;
     }
     
+    @OneToMany(mappedBy = "cliente")
+    private List<Venta> listaVenta;
     
+     public List<Venta> getListaVenta() {
+        return listaVenta;
+    }
+
+    public void setListaVenta(List<Venta> listaVenta) {
+        this.listaVenta = listaVenta;
+    }
     
     @Override
     public int hashCode() {
@@ -138,8 +149,9 @@ public class Cliente implements Serializable {
 
     @Override
     public String toString() {
-        return "Clientes{" + "id=" + id + ", rfc=" + rfc + ", nombre=" + nombre + ", direccion=" + direccion + ", telefono1=" + telefono1 + ", telefono2=" + telefono2 + '}';
+        return "Cliente{" + "id=" + id + ", rfc=" + rfc + ", nombre=" + nombre + ", direccion=" + direccion + ", telefono1=" + telefono1 + ", telefono2=" + telefono2 + ", listaVenta=" + listaVenta + '}';
     }
+
 
     
 }
