@@ -43,8 +43,6 @@ public class Productos implements Serializable {
     public Productos() {
     }
     
-    
-    
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
