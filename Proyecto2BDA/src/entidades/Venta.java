@@ -78,7 +78,7 @@ public class Venta implements Serializable {
     }
     
     @ManyToOne
-    @JoinColumn(name = "idcliente", nullable = false)
+    @JoinColumn(name = "idcliente")
     private Cliente cliente;
 
     public Cliente getCliente() {
@@ -89,7 +89,7 @@ public class Venta implements Serializable {
         this.cliente = cliente;
     }
     
-    @OneToMany(mappedBy="Venta",cascade=CascadeType.ALL)
+    @OneToMany(mappedBy="venta",cascade=CascadeType.ALL)
     private List<VentaProducto> ventaProducto;
 
     public List<VentaProducto> getVentaProducto() {

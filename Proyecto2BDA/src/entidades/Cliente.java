@@ -7,6 +7,7 @@ package entidades;
 
 import java.io.Serializable;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -116,7 +117,7 @@ public class Cliente implements Serializable {
         this.telefono2 = telefono2;
     }
     
-    @OneToMany(mappedBy = "cliente")
+    @OneToMany(mappedBy = "cliente", cascade=CascadeType.ALL)
     private List<Venta> listaVenta;
     
      public List<Venta> getListaVenta() {

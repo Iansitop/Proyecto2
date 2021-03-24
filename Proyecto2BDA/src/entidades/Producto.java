@@ -23,7 +23,7 @@ import javax.persistence.Table;
  * @author Usuario
  */
 @Entity
-@Table (name="Producto")
+@Table(name = "Producto")
 public class Producto implements Serializable {
 
     public Producto(int id, String nombre, float precioactual, int stock, Categoria categoria, Proveedor proveedor) {
@@ -45,13 +45,11 @@ public class Producto implements Serializable {
 
     public Producto() {
     }
-    
-    
-    
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="idproducto")
+    @Column(name = "idproducto")
     private int id;
 
     public int getId() {
@@ -61,8 +59,8 @@ public class Producto implements Serializable {
     public void setId(int id) {
         this.id = id;
     }
-    
-    @Column(name="nombre")
+
+    @Column(name = "nombre")
     private String nombre;
 
     public String getNombre() {
@@ -72,8 +70,8 @@ public class Producto implements Serializable {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-    
-    @Column(name="precioactual")
+
+    @Column(name = "precioactual")
     private float precioactual;
 
     public float getPrecioactual() {
@@ -83,8 +81,8 @@ public class Producto implements Serializable {
     public void setPrecioactual(float precioactual) {
         this.precioactual = precioactual;
     }
-    
-    @Column(name="stock")
+
+    @Column(name = "stock")
     private int stock;
 
     public int getStock() {
@@ -94,9 +92,9 @@ public class Producto implements Serializable {
     public void setStock(int stock) {
         this.stock = stock;
     }
-    
+
     @ManyToOne
-    @JoinColumn(name="idcategoria")
+    @JoinColumn(name = "idcategoria")
     private Categoria categoria;
 
     public Categoria getCategoria() {
@@ -106,9 +104,9 @@ public class Producto implements Serializable {
     public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
     }
-    
+
     @ManyToOne
-    @JoinColumn(name="idproveedor")
+    @JoinColumn(name = "idproveedor")
     private Proveedor proveedor;
 
     public Proveedor getProveedor() {
@@ -118,8 +116,8 @@ public class Producto implements Serializable {
     public void setProveedor(Proveedor proveedor) {
         this.proveedor = proveedor;
     }
-    
-    @OneToMany(mappedBy="Producto",cascade=CascadeType.ALL)
+
+    @OneToMany(mappedBy = "Producto", cascade = CascadeType.ALL)
     private List<VentaProducto> ventaProducto;
 
     public List<VentaProducto> getVentaProducto() {
@@ -129,9 +127,6 @@ public class Producto implements Serializable {
     public void setVentaProducto(List<VentaProducto> ventaProducto) {
         this.ventaProducto = ventaProducto;
     }
-    
-    
-    
 
     @Override
     public int hashCode() {
@@ -158,6 +153,4 @@ public class Producto implements Serializable {
         return "Productos{" + "id=" + id + ", nombre=" + nombre + ", precioactual=" + precioactual + ", stock=" + stock + ", categoria=" + categoria + ", proveedor=" + proveedor + '}';
     }
 
-    
-    
 }

@@ -6,11 +6,14 @@
 package entidades;
 
 import java.io.Serializable;
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -105,8 +108,17 @@ public class Proveedor implements Serializable {
     public void setTelefono1(String telefono) {
         this.telefono = telefono;
     }
-    
-    
+
+    @OneToMany(mappedBy = "proveedor",cascade=CascadeType.ALL)
+    private List<Producto> listaProducto;
+
+    public List<Producto> getListaProducto() {
+        return listaProducto;
+    }
+
+    public void setListaProducto(List<Producto> listaProducto) {
+        this.listaProducto = listaProducto;
+    }
 
     @Override
     public int hashCode() {
