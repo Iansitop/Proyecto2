@@ -6,6 +6,8 @@
 package entidades;
 
 import java.io.Serializable;
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -97,11 +99,11 @@ public class Producto implements Serializable {
     @JoinColumn(name="idcategoria")
     private Categoria categoria;
 
-    public Categoria getIdcategoria() {
+    public Categoria getCategoria() {
         return categoria;
     }
 
-    public void setIdcategoria(Categoria categoria) {
+    public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
     }
     
@@ -117,8 +119,18 @@ public class Producto implements Serializable {
         this.proveedor = proveedor;
     }
     
-    @OneToMany(mappedBy="Producto")
-    @JoinColumn
+    @OneToMany(mappedBy="Producto",cascade=CascadeType.ALL)
+    private List<VentaProducto> ventaProducto;
+
+    public List<VentaProducto> getVentaProducto() {
+        return ventaProducto;
+    }
+
+    public void setVentaProducto(List<VentaProducto> ventaProducto) {
+        this.ventaProducto = ventaProducto;
+    }
+    
+    
     
 
     @Override
