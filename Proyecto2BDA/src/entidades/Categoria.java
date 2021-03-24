@@ -6,21 +6,25 @@
 package entidades;
 
 import java.io.Serializable;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  *
  * @author Usuario
  */
-@Entity
+@Entity 
+@Table(name="Categoria")
 public class Categoria implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="idcategoria")
     private int id;
 
     public int getId() {
@@ -30,6 +34,30 @@ public class Categoria implements Serializable {
     public void setId(int id) {
         this.id = id;
     }
+    
+    @Column(name="nombre")
+    private String nombre;
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+    
+    @Column(name="descripcion")
+    private String descripcion;
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+    
+    
 
     @Override
     public int hashCode() {
@@ -53,7 +81,9 @@ public class Categoria implements Serializable {
 
     @Override
     public String toString() {
-        return "entidades.Categoria[ id=" + id + " ]";
+        return "Categoria{" + "id=" + id + ", nombre=" + nombre + ", descripcion=" + descripcion + '}';
     }
+
+    
     
 }
