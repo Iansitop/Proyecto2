@@ -3,6 +3,11 @@
   <persistence-unit name="Proyecto2BDAPU" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>entidades.Categoria</class>
+    <class>entidades.Proveedor</class>
+    <class>entidades.Cliente</class>
+    <class>entidades.VentaProducto</class>
+    <class>entidades.Venta</class>
+    <class>entidades.Producto</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/sistemaventas?zeroDateTimeBehavior=convertToNull"/>
       <property name="javax.persistence.jdbc.user" value="root"/>
