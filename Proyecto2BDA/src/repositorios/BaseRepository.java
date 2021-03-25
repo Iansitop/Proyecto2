@@ -28,7 +28,7 @@ public abstract class BaseRepository<T> {
 
     public EntityManager createEntityManager() {
         
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("Proyecto2BDAPU2");
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("Proyecto2BDAPU");
         EntityManager em = emf.createEntityManager();
         return em;
         
