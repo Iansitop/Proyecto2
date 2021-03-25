@@ -23,7 +23,7 @@ public class Proyecto2BDA {
 ////        System.out.println(hola);
         //aaaaaaaaaaaaaaa
         //bbbbbbbbbbbbbbb
-CategoriaRepository cr = new CategoriaRepository();
+        CategoriaRepository cr = new CategoriaRepository();
         Control c = new Control();
 //        cr.guardar(new Categoria(hola, hola));
 //        Categoria cat = new Categoria(hola, hola);
@@ -32,5 +32,5 @@ CategoriaRepository cr = new CategoriaRepository();
         c.getCategoriaRepository().guardar(new Categoria(hola, hola));
 //        c.getCategoriaRepository().buscarTodos();
     }
-
+    
 }
