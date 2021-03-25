@@ -14,8 +14,9 @@ import javax.persistence.Persistence;
  *
  * @author crist
  */
-public abstract class BaseRepository <T> {
-     public abstract void guardar(T entidad);
+public abstract class BaseRepository<T> {
+
+    public abstract void guardar(T entidad);
 
     public abstract void eliminar(int id);
 
@@ -24,10 +25,12 @@ public abstract class BaseRepository <T> {
     public abstract T buscarPorId(int id);
 
     public abstract ArrayList<T> buscarTodos();
-    
-    public EntityManager createEntityManager(){
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("Proyecto2BDAPU");
+
+    public EntityManager createEntityManager() {
+        
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("Proyecto2BDAPU2");
         EntityManager em = emf.createEntityManager();
         return em;
+        
     }
 }
