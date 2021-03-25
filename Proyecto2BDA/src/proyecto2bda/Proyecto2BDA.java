@@ -20,17 +20,18 @@ public class Proyecto2BDA {
      */
     public static void main(String[] args) {
         String hola = "Hola";
-////        System.out.println(hola);
-        //aaaaaaaaaaaaaaa
-        //bbbbbbbbbbbbbbb
-        CategoriaRepository cr = new CategoriaRepository();
-        Control c = new Control();
-//        cr.guardar(new Categoria(hola, hola));
-//        Categoria cat = new Categoria(hola, hola);
-//        System.out.println(cat.toString());
-
-        c.getCategoriaRepository().guardar(new Categoria(hola, hola));
-//        c.getCategoriaRepository().buscarTodos();
+        System.out.println(hola);
+//////        System.out.println(hola);
+//        //aaaaaaaaaaaaaaa
+//        //bbbbbbbbbbbbbbb
+//        CategoriaRepository cr = new CategoriaRepository();
+//        Control c = new Control();
+////        cr.guardar(new Categoria(hola, hola));
+////        Categoria cat = new Categoria(hola, hola);
+////        System.out.println(cat.toString());
+//
+//        c.getCategoriaRepository().guardar(new Categoria(hola, hola));
+////        c.getCategoriaRepository().buscarTodos();
     }
     
 }
