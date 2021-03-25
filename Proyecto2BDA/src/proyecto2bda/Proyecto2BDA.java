@@ -5,6 +5,9 @@
  */
 package proyecto2bda;
 
+import entidades.Categoria;
+import repositorios.Control;
+
 /**
  *
  * @author Usuario
@@ -16,9 +19,17 @@ public class Proyecto2BDA {
      */
     public static void main(String[] args) {
         String hola="Hola";
-        System.out.println(hola);
+////        System.out.println(hola);
         //aaaaaaaaaaaaaaa
         //bbbbbbbbbbbbbbb
+        
+        Control c = new Control();
+        Categoria cat = new Categoria(hola, hola);
+        System.out.println(cat.toString());
+        c.getCategoriaRepository();
+        
+        c.getCategoriaRepository().guardar(cat);
+//        c.getCategoriaRepository().buscarTodos();
     }
     
 }
