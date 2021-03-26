@@ -58,7 +58,7 @@ public class Proveedor implements Serializable {
         this.id = id;
     }
 
-    @Column(name = "rfc")
+    @Column(name = "rfc",unique=true)
     private String rfc;
 
     public String getRfc() {
