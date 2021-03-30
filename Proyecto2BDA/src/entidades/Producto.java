@@ -117,16 +117,7 @@ public class Producto implements Serializable {
         this.proveedor = proveedor;
     }
 
-    @OneToMany(mappedBy = "Producto", cascade = CascadeType.ALL)
-    private List<VentaProducto> ventaProducto;
-
-    public List<VentaProducto> getVentaProducto() {
-        return ventaProducto;
-    }
-
-    public void setVentaProducto(List<VentaProducto> ventaProducto) {
-        this.ventaProducto = ventaProducto;
-    }
+    
 
     @Override
     public int hashCode() {

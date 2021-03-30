@@ -21,7 +21,7 @@ public class ProductoRepository extends BaseRepository<Producto> {
     private final ArrayList<Producto> producto;
 
     public ProductoRepository() {
-        this.producto = new ArrayList();
+        this.producto = new ArrayList<>();
     }
     
     @Override
@@ -51,12 +51,11 @@ public class ProductoRepository extends BaseRepository<Producto> {
 
         Producto prod = em.find(Producto.class, entidad.getId());
         if (prod != null) {
-            prod.setCategoria(prod.getCategoria());
-            prod.setNombre(prod.getNombre());
-            prod.setPrecioactual(prod.getPrecioactual());
-            prod.setProveedor(prod.getProveedor());
-            prod.setStock(prod.getStock());
-            prod.setVentaProducto(prod.getVentaProducto());
+            prod.setCategoria(entidad.getCategoria());
+            prod.setNombre(entidad.getNombre());
+            prod.setPrecioactual(entidad.getPrecioactual());
+            prod.setProveedor(entidad.getProveedor());
+            prod.setStock(entidad.getStock());
         }
 
         em.getTransaction().commit();

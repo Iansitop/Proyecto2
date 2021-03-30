@@ -22,6 +22,28 @@ import javax.persistence.Table;
 @Entity
 @Table(name="VentaProducto")
 public class VentaProducto implements Serializable {
+
+    public VentaProducto(int id, Producto producto, Venta venta, float precio, int cantidad, float montoTotal) {
+        this.id = id;
+        this.producto = producto;
+        this.venta = venta;
+        this.precio = precio;
+        this.cantidad = cantidad;
+        this.montoTotal = montoTotal;
+    }
+
+    public VentaProducto(Producto producto, Venta venta, float precio, int cantidad, float montoTotal) {
+        this.producto = producto;
+        this.venta = venta;
+        this.precio = precio;
+        this.cantidad = cantidad;
+        this.montoTotal = montoTotal;
+    }
+
+    public VentaProducto() {
+    }
+    
+    
     
     private static final long serialVersionUID = 1L;
     @Id
