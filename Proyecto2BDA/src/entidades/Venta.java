@@ -29,6 +29,24 @@ import javax.persistence.TemporalType;
 @Table(name = "ventas")
 public class Venta implements Serializable {
 
+    public Venta(int id, Date fecha, float descuento, float montoFinal, Cliente cliente) {
+        this.id = id;
+        this.fecha = fecha;
+        this.descuento = descuento;
+        this.montoFinal = montoFinal;
+        this.cliente = cliente;
+    }
+
+    public Venta(Date fecha, float descuento, float montoFinal, Cliente cliente) {
+        this.fecha = fecha;
+        this.descuento = descuento;
+        this.montoFinal = montoFinal;
+        this.cliente = cliente;
+    }
+
+    public Venta() {
+    }
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

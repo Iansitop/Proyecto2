@@ -65,6 +65,10 @@ public class Proveedor implements Serializable {
         return rfc;
     }
 
+    public void setRfc(String rfc) {
+        this.rfc = rfc;
+    }
+
     @Column(name = "nombre")
     private String nombre;
 
@@ -105,7 +109,7 @@ public class Proveedor implements Serializable {
         return telefono;
     }
 
-    public void setTelefono1(String telefono) {
+    public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
 

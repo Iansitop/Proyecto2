@@ -21,7 +21,7 @@ import javax.persistence.Table;
  * @author Usuario
  */
 @Entity 
-@Table(name="Categoria")
+@Table(name="Categorias")
 public class Categoria implements Serializable {
 
     public Categoria(int id, String nombre, String descripcion) {
