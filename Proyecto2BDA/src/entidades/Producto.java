@@ -23,7 +23,7 @@ import javax.persistence.Table;
  * @author Usuario
  */
 @Entity
-@Table(name = "Producto")
+@Table(name = "Productos")
 public class Producto implements Serializable {
 
     public Producto(int id, String nombre, float precioactual, int stock, Categoria categoria, Proveedor proveedor) {

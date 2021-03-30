@@ -19,18 +19,18 @@ public class Proyecto2BDA {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        String hola = "Hola";
-        System.out.println(hola);
+        String hola = "";
+//        System.out.println(hola);
 //////        System.out.println(hola);
 //        //aaaaaaaaaaaaaaa
-//        //bbbbbbbbbbbbbbb
-//        CategoriaRepository cr = new CategoriaRepository();
-//        Control c = new Control();
+        //bbbbbbbbbbbbbbb
+        CategoriaRepository cr = new CategoriaRepository();
+        Control c = new Control();
 ////        cr.guardar(new Categoria(hola, hola));
 ////        Categoria cat = new Categoria(hola, hola);
 ////        System.out.println(cat.toString());
 //
-//        c.getCategoriaRepository().guardar(new Categoria(hola, hola));
+        c.getCategoriaRepository().guardar(new Categoria("Frutas y verduras", "IDEM"));
 ////        c.getCategoriaRepository().buscarTodos();
     }
     
