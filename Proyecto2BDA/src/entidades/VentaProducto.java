@@ -20,7 +20,7 @@ import javax.persistence.Table;
  * @author Usuario
  */
 @Entity
-@Table(name="VentaProducto")
+@Table(name="rel_ventaproducto")
 public class VentaProducto implements Serializable {
 
     public VentaProducto(int id, Producto producto, Venta venta, float precio, int cantidad, float montoTotal) {

@@ -12,13 +12,23 @@ package repositorios;
 public class Control {
 
     CategoriaRepository cr;
-
+    ClientesRepository clr;
+    
     public CategoriaRepository getCategoriaRepository() {
         if (this.cr != null) {
             return this.cr;
         } else {
             this.cr = new CategoriaRepository();
             return this.cr;
+        }
+    }
+    
+    public ClientesRepository getClientesRepository() {
+        if (this.clr != null) {
+            return this.clr;
+        } else {
+            this.clr = new ClientesRepository();
+            return this.clr;
         }
     }
 }
