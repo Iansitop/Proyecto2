@@ -7,8 +7,11 @@ package interfaz;
 
 import entidades.Cliente;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.text.BadLocationException;
 import repositorios.Control;
 
 /**
@@ -183,11 +186,21 @@ public class DlgClientes extends javax.swing.JFrame {
                 nombre_clienteActionPerformed(evt);
             }
         });
+        nombre_cliente.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                nombre_clienteKeyPressed(evt);
+            }
+        });
 
         rfc_cliente.setText("RFC");
         rfc_cliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rfc_clienteActionPerformed(evt);
+            }
+        });
+        rfc_cliente.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                rfc_clienteKeyPressed(evt);
             }
         });
 
@@ -197,6 +210,11 @@ public class DlgClientes extends javax.swing.JFrame {
                 telefono2_cliActionPerformed(evt);
             }
         });
+        telefono2_cli.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                telefono2_cliKeyPressed(evt);
+            }
+        });
 
         direccion_cliente.setText("Dirección");
         direccion_cliente.addActionListener(new java.awt.event.ActionListener() {
@@ -204,11 +222,21 @@ public class DlgClientes extends javax.swing.JFrame {
                 direccion_clienteActionPerformed(evt);
             }
         });
+        direccion_cliente.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                direccion_clienteKeyPressed(evt);
+            }
+        });
 
         telefono1_cli.setText("Teléfono 1");
         telefono1_cli.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 telefono1_cliActionPerformed(evt);
+            }
+        });
+        telefono1_cli.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                telefono1_cliKeyPressed(evt);
             }
         });
 
@@ -557,6 +585,61 @@ public class DlgClientes extends javax.swing.JFrame {
     private void id_clienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_id_clienteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_id_clienteActionPerformed
+
+    private void rfc_clienteKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_rfc_clienteKeyPressed
+        if (evt.getKeyCode() == 8) {
+        } else if (rfc_cliente.getText().length() > 14) {
+            try {
+                rfc_cliente.setText(rfc_cliente.getText(0, 14));
+            } catch (BadLocationException ex) {
+                Logger.getLogger(DlgProveedor.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_rfc_clienteKeyPressed
+
+    private void nombre_clienteKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nombre_clienteKeyPressed
+        if (evt.getKeyCode() == 8) {
+        } else if (nombre_cliente.getText().length() > 44) {
+            try {
+                nombre_cliente.setText(nombre_cliente.getText(0, 44));
+            } catch (BadLocationException ex) {
+                Logger.getLogger(DlgProveedor.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_nombre_clienteKeyPressed
+
+    private void direccion_clienteKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_direccion_clienteKeyPressed
+        if (evt.getKeyCode() == 8) {
+        } else if (direccion_cliente.getText().length() > 99) {
+            try {
+                direccion_cliente.setText(direccion_cliente.getText(0, 99));
+            } catch (BadLocationException ex) {
+                Logger.getLogger(DlgProveedor.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_direccion_clienteKeyPressed
+
+    private void telefono1_cliKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_telefono1_cliKeyPressed
+        if (evt.getKeyCode() == 8) {
+        } else if (telefono1_cli.getText().length() > 14) {
+            try {
+                telefono1_cli.setText(telefono1_cli.getText(0, 14));
+            } catch (BadLocationException ex) {
+                Logger.getLogger(DlgProveedor.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_telefono1_cliKeyPressed
+
+    private void telefono2_cliKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_telefono2_cliKeyPressed
+        if (evt.getKeyCode() == 8) {
+        } else if (telefono2_cli.getText().length() > 14) {
+            try {
+                telefono2_cli.setText(telefono2_cli.getText(0, 14));
+            } catch (BadLocationException ex) {
+                Logger.getLogger(DlgProveedor.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_telefono2_cliKeyPressed
     
     
     public void actualizarTabla(ArrayList<Cliente> listaTabla) {

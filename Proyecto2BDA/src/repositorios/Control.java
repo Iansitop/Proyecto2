@@ -13,6 +13,10 @@ public class Control {
 
     CategoriaRepository cr;
     ClientesRepository clr;
+    ProveedoresRepository pvr;
+    ProductoRepository pdr;
+    VentasRepository vnr;
+    VentaProductoRepository vpr;
     
     public CategoriaRepository getCategoriaRepository() {
         if (this.cr != null) {
@@ -31,4 +35,41 @@ public class Control {
             return this.clr;
         }
     }
+    
+    public ProveedoresRepository getProveedoresRepository() {
+        if (this.clr != null) {
+            return this.pvr;
+        } else {
+            this.pvr = new ProveedoresRepository();
+            return this.pvr;
+        }
+    }
+    
+    public ProductoRepository getProductoRepository() {
+        if (this.pdr != null) {
+            return this.pdr;
+        } else {
+            this.pdr = new ProductoRepository();
+            return this.pdr;
+        }
+    }
+    
+    public VentasRepository getVentasRepository() {
+        if (this.vnr != null) {
+            return this.vnr;
+        } else {
+            this.vnr = new VentasRepository();
+            return this.vnr;
+        }
+    }
+    
+    public VentaProductoRepository getVentaProductoRepository() {
+        if (this.vpr != null) {
+            return this.vpr;
+        } else {
+            this.vpr = new VentaProductoRepository();
+            return this.vpr;
+        }
+    }
+    
 }
