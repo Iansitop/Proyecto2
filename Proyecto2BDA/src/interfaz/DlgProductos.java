@@ -9,12 +9,12 @@ package interfaz;
  *
  * @author Usuario
  */
-public class DlgCategorias extends javax.swing.JFrame {
+public class DlgProductos extends javax.swing.JFrame {
 
     /**
-     * Creates new form DlgCategorias
+     * Creates new form DlgProductos
      */
-    public DlgCategorias() {
+    public DlgProductos() {
         initComponents();
     }
 
