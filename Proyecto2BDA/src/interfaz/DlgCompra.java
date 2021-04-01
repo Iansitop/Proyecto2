@@ -34,8 +34,8 @@ public class DlgCompra extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         boton_eliminar.setVisible(false);
         actualizarTabla(c.getVentaProductoRepository().buscarTodos());
-        AutoCompleteDecorator.decorate(comboBoxProductos);
-        comboBoxProductos.setSelectedItem(null);
+        //AutoCompleteDecorator.decorate(comboBoxProductos);
+        //comboBoxProductos.setSelectedItem(null);
     }
     Control c = new Control();
 
@@ -70,9 +70,9 @@ public class DlgCompra extends javax.swing.JFrame {
         botonMenos = new javax.swing.JButton();
         campoTextoCantidadVentanilla = new javax.swing.JTextField();
         boton_eliminar = new javax.swing.JButton();
-        comboBoxProductos = new javax.swing.JComboBox<>();
-        jButton1 = new javax.swing.JButton();
+        botonAgregarProducto = new javax.swing.JButton();
         campoTextoSubTotalVentanilla = new javax.swing.JTextField();
+        jComboBox1 = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -308,8 +308,18 @@ public class DlgCompra extends javax.swing.JFrame {
         );
 
         botonMas.setText("+");
+        botonMas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonMasActionPerformed(evt);
+            }
+        });
 
         botonMenos.setText("-");
+        botonMenos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonMenosActionPerformed(evt);
+            }
+        });
 
         campoTextoCantidadVentanilla.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         campoTextoCantidadVentanilla.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -326,37 +336,19 @@ public class DlgCompra extends javax.swing.JFrame {
             }
         });
 
-        comboBoxProductos.setEditable(true);
-        Producto[] productos=new Producto[c.getProductoRepository().buscarTodos().size()];
-        for (int i = 0; i < c.getProductoRepository().buscarTodos().size(); i++) {
-            productos[i]=c.getProductoRepository().buscarTodos().get(i);
-        }
-        comboBoxProductos.setModel(new javax.swing.DefaultComboBoxModel<Producto>(productos));
-        comboBoxProductos.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                comboBoxProductosItemStateChanged(evt);
+        botonAgregarProducto.setText("Agregar Producto");
+        botonAgregarProducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonAgregarProductoActionPerformed(evt);
             }
         });
-        comboBoxProductos.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                comboBoxProductosFocusLost(evt);
-            }
-        });
-        comboBoxProductos.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                comboBoxProductosKeyPressed(evt);
-            }
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                comboBoxProductosKeyTyped(evt);
-            }
-        });
-
-        jButton1.setText("Agregar Producto");
 
         campoTextoSubTotalVentanilla.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         campoTextoSubTotalVentanilla.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         campoTextoSubTotalVentanilla.setText("0");
         campoTextoSubTotalVentanilla.setEnabled(false);
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -375,17 +367,17 @@ public class DlgCompra extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(botonMenos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(botonMas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(botonAgregarProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(comboBoxProductos, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(campoTextoSubTotalVentanilla, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                        .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(campoTextoSubTotalVentanilla, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(241, 241, 241)
                         .addComponent(boton_eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(198, Short.MAX_VALUE))
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
@@ -399,16 +391,15 @@ public class DlgCompra extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(62, 62, 62)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(botonMas, javax.swing.GroupLayout.PREFERRED_SIZE, 24, Short.MAX_VALUE)
-                                    .addGap(6, 6, 6)
-                                    .addComponent(botonMenos))
-                                .addComponent(campoTextoCantidadVentanilla))
-                            .addComponent(comboBoxProductos, javax.swing.GroupLayout.DEFAULT_SIZE, 57, Short.MAX_VALUE)
-                            .addComponent(campoTextoSubTotalVentanilla))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(botonMas, javax.swing.GroupLayout.PREFERRED_SIZE, 24, Short.MAX_VALUE)
+                                .addGap(6, 6, 6)
+                                .addComponent(botonMenos))
+                            .addComponent(campoTextoCantidadVentanilla)
+                            .addComponent(campoTextoSubTotalVentanilla)
+                            .addComponent(jComboBox1))
                         .addGap(29, 29, 29)
-                        .addComponent(jButton1)
+                        .addComponent(botonAgregarProducto)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -539,21 +530,23 @@ public class DlgCompra extends javax.swing.JFrame {
         boton_eliminar.setVisible(false);
     }//GEN-LAST:event_boton_eliminarActionPerformed
 
-    private void comboBoxProductosItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_comboBoxProductosItemStateChanged
-        actualizarEstadoProducto();
-    }//GEN-LAST:event_comboBoxProductosItemStateChanged
-
-    private void comboBoxProductosFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_comboBoxProductosFocusLost
+    private void botonAgregarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAgregarProductoActionPerformed
         
-    }//GEN-LAST:event_comboBoxProductosFocusLost
+    }//GEN-LAST:event_botonAgregarProductoActionPerformed
 
-    private void comboBoxProductosKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_comboBoxProductosKeyTyped
-        
-    }//GEN-LAST:event_comboBoxProductosKeyTyped
+    private void botonMasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonMasActionPerformed
+        String cantidad=String.valueOf(Integer.parseInt(campoTextoCantidadVentanilla.getText())+1);
+        //Aquí va un if cantidad > stock que no cambie
+        campoTextoCantidadVentanilla.setText(cantidad);
+    }//GEN-LAST:event_botonMasActionPerformed
 
-    private void comboBoxProductosKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_comboBoxProductosKeyPressed
-        
-    }//GEN-LAST:event_comboBoxProductosKeyPressed
+    private void botonMenosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonMenosActionPerformed
+        if((Integer.parseInt(campoTextoCantidadVentanilla.getText())-1)<0){
+        }else{
+            String cantidad=String.valueOf(Integer.parseInt(campoTextoCantidadVentanilla.getText())-1);
+            campoTextoCantidadVentanilla.setText(cantidad);
+        }
+    }//GEN-LAST:event_botonMenosActionPerformed
 
     public void actualizarTabla(ArrayList<VentaProducto> listaTabla) {
         DefaultTableModel model = new DefaultTableModel();
@@ -574,6 +567,7 @@ public class DlgCompra extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton botonAgregarProducto;
     private javax.swing.JButton botonMas;
     private javax.swing.JButton botonMenos;
     private javax.swing.JButton botonMenuCategorias;
@@ -591,8 +585,7 @@ public class DlgCompra extends javax.swing.JFrame {
     private javax.swing.JTextField campoTextoSubTotalVentanilla;
     private javax.swing.JTextField campoTextoTotal;
     private javax.swing.JComboBox<Cliente> comboBoxClientes;
-    private javax.swing.JComboBox<Producto> comboBoxProductos;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
