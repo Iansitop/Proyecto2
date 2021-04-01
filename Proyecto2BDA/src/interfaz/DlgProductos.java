@@ -483,6 +483,12 @@ public class DlgProductos extends javax.swing.JFrame {
 
             }
         }
+        
+        Proveedor[] proveedores=new Proveedor[c.getProveedoresRepository().buscarTodos().size()];
+        for (int i = 0; i < c.getProveedoresRepository().buscarTodos().size(); i++) {
+            proveedores[i]=c.getProveedoresRepository().buscarTodos().get(i);
+        }
+        
 
 //        telefono1_cli.setText(tabla_clientes.getValueAt(tabla_clientes.getSelectedRow(), 4).toString());
 //        telefono2_cli.setText(tabla_clientes.getValueAt(tabla_clientes.getSelectedRow(), 5).toString());
