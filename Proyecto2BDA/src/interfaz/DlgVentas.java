@@ -6,10 +6,14 @@
 package interfaz;
 
 import entidades.Cliente;
+import entidades.Producto;
 import entidades.Venta;
 import entidades.VentaProducto;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import javax.swing.table.DefaultTableModel;
 import repositorios.Control;
@@ -26,9 +30,11 @@ public class DlgVentas extends javax.swing.JFrame {
     public DlgVentas() {
         initComponents();
         botonMenuVentas.setEnabled(false);
-        Date hoy = new Date();
-        fecha1.setValue(hoy);
-        fecha2.setValue(hoy);
+        Date date = new java.sql.Date(Calendar.getInstance().getTime().getTime());
+        DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
+        String fechaParaSQL = df.format(date);
+        fecha1.setValue(fechaParaSQL);
+        fecha2.setValue(fechaParaSQL);
 
     }
     Control c = new Control();
@@ -63,10 +69,10 @@ public class DlgVentas extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         tabla_listaproductos = new javax.swing.JTable();
         campoId = new javax.swing.JTextField();
-        campoNombre = new javax.swing.JTextField();
-        campoPrecio = new javax.swing.JTextField();
-        campoCantidad = new javax.swing.JTextField();
-        campoMonto = new javax.swing.JTextField();
+        campoCliente = new javax.swing.JTextField();
+        campoSubtotal = new javax.swing.JTextField();
+        campoDesc = new javax.swing.JTextField();
+        campoTotal = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -293,13 +299,13 @@ public class DlgVentas extends javax.swing.JFrame {
 
         campoId.setEditable(false);
 
-        campoNombre.setEditable(false);
+        campoCliente.setEditable(false);
 
-        campoPrecio.setEditable(false);
+        campoSubtotal.setEditable(false);
 
-        campoCantidad.setEditable(false);
+        campoDesc.setEditable(false);
 
-        campoMonto.setEditable(false);
+        campoTotal.setEditable(false);
 
         jLabel4.setText("ID");
 
@@ -329,10 +335,10 @@ public class DlgVentas extends javax.swing.JFrame {
                             .addComponent(jLabel8))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(campoMonto, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(campoCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(campoPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(campoNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(campoTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(campoDesc, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(campoSubtotal, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(campoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(campoId, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(27, 27, 27))
         );
@@ -345,19 +351,19 @@ public class DlgVentas extends javax.swing.JFrame {
                     .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(campoNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(campoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(campoPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(campoSubtotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(campoCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(campoDesc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(campoMonto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(campoTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -417,7 +423,16 @@ public class DlgVentas extends javax.swing.JFrame {
     }//GEN-LAST:event_botonMenuCompraActionPerformed
 
     private void tabla_ventasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabla_ventasMouseClicked
-
+        campoId.setText(tabla_ventas.getValueAt(tabla_ventas.getSelectedRow(), 0).toString());
+        campoCliente.setText(tabla_ventas.getValueAt(tabla_ventas.getSelectedRow(), 1).toString());
+        campoSubtotal.setText(tabla_ventas.getValueAt(tabla_ventas.getSelectedRow(), 3).toString());
+        campoDesc.setText(tabla_ventas.getValueAt(tabla_ventas.getSelectedRow(), 4).toString());
+        campoTotal.setText(tabla_ventas.getValueAt(tabla_ventas.getSelectedRow(), 5).toString());
+        
+        int id = Integer.valueOf(campoId.getText());
+        Venta venta = c.getVentasRepository().buscarPorId(id);
+        actualizarTablaListaProductos(c.getVentaProductoRepository().buscarPorVenta(venta));
+        
     }//GEN-LAST:event_tabla_ventasMouseClicked
 
     private void tabla_listaproductosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabla_listaproductosMouseClicked
@@ -427,10 +442,12 @@ public class DlgVentas extends javax.swing.JFrame {
     private void botonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBuscarActionPerformed
 
         if (comoboBoxCliente.getSelectedIndex() == 0) {
-            c.getVentasRepository().buscarPorfecha(obtenerFecha1(), obtenerFecha2());
+            actualizarTablaVentas(c.getVentasRepository().buscarPorfecha(obtenerFecha1(), obtenerFecha2()));
+        } else{
+            Cliente cliente = (Cliente) comoboBoxCliente.getSelectedItem();
+            actualizarTablaVentas(c.getVentasRepository().buscarPorCliente(cliente, obtenerFecha1(), obtenerFecha2()));
         }
-        
-        
+
     }//GEN-LAST:event_botonBuscarActionPerformed
     public Date obtenerFecha1() {
         String f = fecha1.getText();
@@ -442,7 +459,8 @@ public class DlgVentas extends javax.swing.JFrame {
         int anio = Integer.valueOf(a);
         return new Date(dia, mes, anio);
     }
-     public Date obtenerFecha2() {
+
+    public Date obtenerFecha2() {
         String f = fecha2.getText();
         String d = f.substring(0, 1);
         String m = f.substring(3, 4);
@@ -452,7 +470,6 @@ public class DlgVentas extends javax.swing.JFrame {
         int anio = Integer.valueOf(a);
         return new Date(dia, mes, anio);
     }
-    
 
     public void actualizarTablaVentas(ArrayList<Venta> listaTabla) {
         DefaultTableModel model = new DefaultTableModel();
@@ -504,11 +521,11 @@ public class DlgVentas extends javax.swing.JFrame {
     private javax.swing.JButton botonMenuProductos;
     private javax.swing.JButton botonMenuProveedores;
     private javax.swing.JButton botonMenuVentas;
-    private javax.swing.JTextField campoCantidad;
+    private javax.swing.JTextField campoCliente;
+    private javax.swing.JTextField campoDesc;
     private javax.swing.JTextField campoId;
-    private javax.swing.JTextField campoMonto;
-    private javax.swing.JTextField campoNombre;
-    private javax.swing.JTextField campoPrecio;
+    private javax.swing.JTextField campoSubtotal;
+    private javax.swing.JTextField campoTotal;
     private javax.swing.JComboBox<String> comoboBoxCliente;
     private javax.swing.JFormattedTextField fecha1;
     private javax.swing.JFormattedTextField fecha2;

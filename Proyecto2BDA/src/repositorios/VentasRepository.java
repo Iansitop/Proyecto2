@@ -5,6 +5,7 @@
  */
 package repositorios;
 
+import entidades.Cliente;
 import entidades.Venta;
 import java.util.ArrayList;
 import java.util.Date;
@@ -90,9 +91,17 @@ public class VentasRepository extends BaseRepository<Venta> {
         return venta = new ArrayList(listaVentas);
     }
 
-    public ArrayList<Venta> buscarPorfecha(Date fecha1, Date fecha2){
-       Query query = createEntityManager().createQuery("Select v " + "from ventas " + "where v.fecha " + "Between "+fecha1+" and "+fecha2+"");
-            List<Venta> list = (List<Venta>) query.getResultList();
-            return (ArrayList<Venta>) list;
-   }
+    public ArrayList<Venta> buscarPorfecha(Date fecha1, Date fecha2) {
+        Query query = createEntityManager().createQuery("Select v " + "from ventas " + "where v.fecha " + "Between " + fecha1 + " and " + fecha2 + "");
+        List<Venta> list = (List<Venta>) query.getResultList();
+        return (ArrayList<Venta>) list;
+    }
+
+    public ArrayList<Venta> buscarPorCliente(Cliente cliente, Date fecha1, Date fecha2) {
+        Query query = createEntityManager().createQuery("Select v " + "from ventas " + "where v.idCliente " + " = " + cliente.getId() + " AND v.fecha"+"Between " + fecha1 + " and " + fecha2 + "");
+        List<Venta> list = (List<Venta>) query.getResultList();
+        return (ArrayList<Venta>) list;
+
+      
+    }
 }

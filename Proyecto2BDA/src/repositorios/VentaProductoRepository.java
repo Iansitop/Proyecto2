@@ -5,6 +5,7 @@
  */
 package repositorios;
 
+import entidades.Venta;
 import entidades.VentaProducto;
 import java.util.ArrayList;
 import java.util.List;
@@ -87,6 +88,13 @@ public class VentaProductoRepository extends BaseRepository<VentaProducto>{
         return ventaP = new ArrayList(listaVentaProducto);
     }
     
-    
+     public ArrayList<VentaProducto> buscarPorVenta(Venta venta) {
+        Query query = createEntityManager().createQuery("Select vp " + "from rel_ventaproducto " + "where vp.idVenta " + " = " + venta.getId());
+        List<VentaProducto> list = (List<VentaProducto>) query.getResultList();
+        return (ArrayList<VentaProducto>) list;
+
+      
+    }
+
     
 }

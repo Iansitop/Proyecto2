@@ -360,10 +360,10 @@
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="campoMonto" min="-2" pref="154" max="-2" attributes="0"/>
-                              <Component id="campoCantidad" min="-2" pref="154" max="-2" attributes="0"/>
-                              <Component id="campoPrecio" min="-2" pref="154" max="-2" attributes="0"/>
-                              <Component id="campoNombre" min="-2" pref="154" max="-2" attributes="0"/>
+                              <Component id="campoTotal" min="-2" pref="154" max="-2" attributes="0"/>
+                              <Component id="campoDesc" min="-2" pref="154" max="-2" attributes="0"/>
+                              <Component id="campoSubtotal" min="-2" pref="154" max="-2" attributes="0"/>
+                              <Component id="campoCliente" min="-2" pref="154" max="-2" attributes="0"/>
                               <Component id="campoId" min="-2" pref="154" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -382,22 +382,22 @@
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="campoNombre" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="campoCliente" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="campoPrecio" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="campoSubtotal" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="campoCantidad" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="campoDesc" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="campoMonto" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="campoTotal" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -441,22 +441,22 @@
             <Property name="editable" type="boolean" value="false"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="campoNombre">
+        <Component class="javax.swing.JTextField" name="campoCliente">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="campoPrecio">
+        <Component class="javax.swing.JTextField" name="campoSubtotal">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="campoCantidad">
+        <Component class="javax.swing.JTextField" name="campoDesc">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="campoMonto">
+        <Component class="javax.swing.JTextField" name="campoTotal">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
           </Properties>
