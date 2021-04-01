@@ -94,5 +94,5 @@ public class ClientesRepository extends BaseRepository<Cliente> {
         em.getTransaction().commit();
         return clientes = new ArrayList(listaClientes);
     }
-
+    
 }

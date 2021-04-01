@@ -7,6 +7,7 @@ package repositorios;
 
 import entidades.Venta;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
@@ -89,4 +90,9 @@ public class VentasRepository extends BaseRepository<Venta> {
         return venta = new ArrayList(listaVentas);
     }
 
+    public ArrayList<Venta> buscarPorfecha(Date fecha1, Date fecha2){
+       Query query = createEntityManager().createQuery("Select v " + "from ventas " + "where v.fecha " + "Between "+fecha1+" and "+fecha2+"");
+            List<Venta> list = (List<Venta>) query.getResultList();
+            return (ArrayList<Venta>) list;
+   }
 }

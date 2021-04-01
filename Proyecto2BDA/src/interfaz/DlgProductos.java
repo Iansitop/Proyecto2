@@ -477,21 +477,19 @@ public class DlgProductos extends javax.swing.JFrame {
 
         Categoria[] categorias = new Categoria[c.getCategoriaRepository().buscarTodos().size()];
         for (int i = 0; i < c.getCategoriaRepository().buscarTodos().size(); i++) {
-
-            if (c.getCategoriaRepository().buscarTodos().get(i).equals(tabla_productos.getValueAt(tabla_productos.getSelectedRow(), 5))) {
+            if (c.getCategoriaRepository().buscarTodos().get(i).equals(tabla_productos.getValueAt(tabla_productos.getSelectedRow(), 4))) {
                 comboBoxCategoria.setSelectedIndex(i);
 
             }
         }
-        
-        Proveedor[] proveedores=new Proveedor[c.getProveedoresRepository().buscarTodos().size()];
-        for (int i = 0; i < c.getProveedoresRepository().buscarTodos().size(); i++) {
-            proveedores[i]=c.getProveedoresRepository().buscarTodos().get(i);
-        }
-        
 
-//        telefono1_cli.setText(tabla_clientes.getValueAt(tabla_clientes.getSelectedRow(), 4).toString());
-//        telefono2_cli.setText(tabla_clientes.getValueAt(tabla_clientes.getSelectedRow(), 5).toString());
+        Proveedor[] proveedores = new Proveedor[c.getProveedoresRepository().buscarTodos().size()];
+        for (int i = 0; i < c.getProveedoresRepository().buscarTodos().size(); i++) {
+            if (c.getProveedoresRepository().buscarTodos().get(i).equals(tabla_productos.getValueAt(tabla_productos.getSelectedRow(), 5))) {
+                comboBoxProveedor.setSelectedIndex(i);
+            }
+
+        }
         boton_actualizar.setVisible(true);
         boton_eliminar.setVisible(true);
         boton_agregar.setEnabled(false);
@@ -598,27 +596,7 @@ public class DlgProductos extends javax.swing.JFrame {
         }
     }
 
-//    private ArrayList listarCategoriasId() {
-//        ArrayList listaCategoriaId = new ArrayList();
-//        for (int i = 0; i < c.getCategoriaRepository().buscarTodos().size(); i++) {
-//            String cat = c.getCategoriaRepository().buscarTodos().get(i).toString();
-//            String id = cat.substring(11, 13);
-//            listaCategoriaId.add(i);
-//        }
-//        return listaCategoriaId;
-//
-//    }
-//
-//    private ArrayList listarProveedoresId() {
-//        ArrayList listaProveedorId = new ArrayList();
-//        for (int i = 0; i < c.getProveedoresRepository().buscarTodos().size(); i++) {
-//            String prov = c.getProveedoresRepository().buscarTodos().get(i).toString();
-//            String id = prov.substring(12, 15);
-//            listaProveedorId.add(i);
-//        }
-//        return listaProveedorId;
-//
-//    }
+
     private void campoTextoBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoTextoBuscarActionPerformed
 
     }//GEN-LAST:event_campoTextoBuscarActionPerformed

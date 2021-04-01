@@ -3,16 +3,16 @@
   <persistence-unit name="Proyecto2BDAPU" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>entidades.Categoria</class>
-    <class>entidades.Proveedor</class>
     <class>entidades.Cliente</class>
-    <class>entidades.Venta</class>
     <class>entidades.Producto</class>
+    <class>entidades.Proveedor</class>
+    <class>entidades.Venta</class>
     <class>entidades.VentaProducto</class>
     <properties>
-      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/sistemaventas?zeroDateTimeBehavior=convertToNull"/>
+      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3305/sistemaventas?useUnicode=true&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC"/>
       <property name="javax.persistence.jdbc.user" value="root"/>
       <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
-      <property name="javax.persistence.jdbc.password" value="Thechamaqueador1"/>
+      <property name="javax.persistence.jdbc.password" value=""/>
     </properties>
   </persistence-unit>
 </persistence>

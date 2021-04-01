@@ -507,7 +507,7 @@ public class DlgCategorias extends javax.swing.JFrame {
         DefaultTableModel model = new DefaultTableModel();
         model.setColumnIdentifiers(new Object[]{"ID categoría", "Nombre", "Descripción"});
         tabla_categorias.setModel(model);
-        Object[] row = new Object[listaTabla.size() * 6];
+        Object[] row = new Object[listaTabla.size() * 3];
         for (int i = 0; i < listaTabla.size(); i++) {
             Categoria cat = listaTabla.get(i);
             row[0] = cat.getId();
