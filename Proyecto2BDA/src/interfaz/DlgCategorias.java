@@ -73,7 +73,7 @@ public class DlgCategorias extends javax.swing.JFrame {
             }
         });
 
-        panel_izq.setBackground(new java.awt.Color(154, 205, 50));
+        panel_izq.setBackground(new java.awt.Color(150, 198, 112));
 
         id_cat.setEditable(false);
         id_cat.setText("ID");
@@ -107,7 +107,7 @@ public class DlgCategorias extends javax.swing.JFrame {
             }
         });
 
-        boton_agregar.setBackground(new java.awt.Color(34, 139, 34));
+        boton_agregar.setBackground(new java.awt.Color(123, 183, 70));
         boton_agregar.setForeground(new java.awt.Color(255, 255, 255));
         boton_agregar.setText("Agregar");
         boton_agregar.addActionListener(new java.awt.event.ActionListener() {
@@ -116,7 +116,7 @@ public class DlgCategorias extends javax.swing.JFrame {
             }
         });
 
-        boton_limpiar.setBackground(new java.awt.Color(34, 139, 34));
+        boton_limpiar.setBackground(new java.awt.Color(123, 183, 70));
         boton_limpiar.setForeground(new java.awt.Color(255, 255, 255));
         boton_limpiar.setText("Cancelar");
         boton_limpiar.addActionListener(new java.awt.event.ActionListener() {
@@ -197,7 +197,7 @@ public class DlgCategorias extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tabla_categorias);
 
-        boton_eliminar.setBackground(new java.awt.Color(34, 139, 34));
+        boton_eliminar.setBackground(new java.awt.Color(123, 183, 70));
         boton_eliminar.setForeground(new java.awt.Color(255, 255, 255));
         boton_eliminar.setText("Eliminar");
         boton_eliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -206,13 +206,13 @@ public class DlgCategorias extends javax.swing.JFrame {
             }
         });
 
-        jPanel2.setBackground(new java.awt.Color(154, 205, 50));
+        jPanel2.setBackground(new java.awt.Color(150, 198, 112));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Menú categorías");
 
-        botonMenuClientes.setBackground(new java.awt.Color(34, 139, 34));
+        botonMenuClientes.setBackground(new java.awt.Color(123, 183, 70));
         botonMenuClientes.setForeground(new java.awt.Color(255, 255, 255));
         botonMenuClientes.setText("Clientes");
         botonMenuClientes.addActionListener(new java.awt.event.ActionListener() {
@@ -221,7 +221,7 @@ public class DlgCategorias extends javax.swing.JFrame {
             }
         });
 
-        botonMenuProductos.setBackground(new java.awt.Color(34, 139, 34));
+        botonMenuProductos.setBackground(new java.awt.Color(123, 183, 70));
         botonMenuProductos.setForeground(new java.awt.Color(255, 255, 255));
         botonMenuProductos.setText("Productos");
         botonMenuProductos.addActionListener(new java.awt.event.ActionListener() {
@@ -230,7 +230,7 @@ public class DlgCategorias extends javax.swing.JFrame {
             }
         });
 
-        botonMenuVentas.setBackground(new java.awt.Color(34, 139, 34));
+        botonMenuVentas.setBackground(new java.awt.Color(123, 183, 70));
         botonMenuVentas.setForeground(new java.awt.Color(255, 255, 255));
         botonMenuVentas.setText("Ventas");
         botonMenuVentas.addActionListener(new java.awt.event.ActionListener() {
@@ -239,7 +239,7 @@ public class DlgCategorias extends javax.swing.JFrame {
             }
         });
 
-        botonMenuCategorias.setBackground(new java.awt.Color(34, 139, 34));
+        botonMenuCategorias.setBackground(new java.awt.Color(123, 183, 70));
         botonMenuCategorias.setForeground(new java.awt.Color(255, 255, 255));
         botonMenuCategorias.setText("Categorías");
         botonMenuCategorias.addActionListener(new java.awt.event.ActionListener() {
@@ -248,7 +248,7 @@ public class DlgCategorias extends javax.swing.JFrame {
             }
         });
 
-        botonMenuProveedores.setBackground(new java.awt.Color(34, 139, 34));
+        botonMenuProveedores.setBackground(new java.awt.Color(123, 183, 70));
         botonMenuProveedores.setForeground(new java.awt.Color(255, 255, 255));
         botonMenuProveedores.setText("Proveedores");
         botonMenuProveedores.addActionListener(new java.awt.event.ActionListener() {
@@ -257,7 +257,7 @@ public class DlgCategorias extends javax.swing.JFrame {
             }
         });
 
-        botonMenuCompra.setBackground(new java.awt.Color(34, 139, 34));
+        botonMenuCompra.setBackground(new java.awt.Color(123, 183, 70));
         botonMenuCompra.setForeground(new java.awt.Color(255, 255, 255));
         botonMenuCompra.setText("Compra");
         botonMenuCompra.addActionListener(new java.awt.event.ActionListener() {
@@ -305,7 +305,7 @@ public class DlgCategorias extends javax.swing.JFrame {
                     .addComponent(botonMenuVentas, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
-        boton_actualizar.setBackground(new java.awt.Color(34, 139, 34));
+        boton_actualizar.setBackground(new java.awt.Color(123, 183, 70));
         boton_actualizar.setForeground(new java.awt.Color(255, 255, 255));
         boton_actualizar.setText("Actualizar");
         boton_actualizar.addActionListener(new java.awt.event.ActionListener() {
@@ -340,8 +340,7 @@ public class DlgCategorias extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(panel_izq, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, 0))
+                        .addComponent(panel_izq, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(58, 58, 58)
                         .addComponent(campoTextoBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -351,7 +350,7 @@ public class DlgCategorias extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(boton_eliminar)
                             .addComponent(boton_actualizar))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addContainerGap())))
         );
 
         pack();
