@@ -15,7 +15,7 @@ public class hola {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-       new DlgVentas().setVisible(true);
+       new DlgCompra().setVisible(true);
     }
     
 }

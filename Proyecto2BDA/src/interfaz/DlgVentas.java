@@ -33,8 +33,8 @@ public class DlgVentas extends javax.swing.JFrame {
         Date date = new java.sql.Date(Calendar.getInstance().getTime().getTime());
         DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
         String fechaParaSQL = df.format(date);
-        fecha1.setValue(fechaParaSQL);
-        fecha2.setValue(fechaParaSQL);
+        fecha1.setText(fechaParaSQL);
+        fecha2.setText(fechaParaSQL);
 
     }
     Control c = new Control();
@@ -51,12 +51,12 @@ public class DlgVentas extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabla_ventas = new javax.swing.JTable();
-        comoboBoxCliente = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         fecha1 = new javax.swing.JFormattedTextField();
         fecha2 = new javax.swing.JFormattedTextField();
         botonBuscar = new javax.swing.JButton();
+        comboBoxClientes = new javax.swing.JComboBox<>();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         botonMenuClientes = new javax.swing.JButton();
@@ -106,18 +106,9 @@ public class DlgVentas extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tabla_ventas);
 
-        Cliente[] clientes=new Cliente[c.getClientesRepository().buscarTodos().size()];
-        comoboBoxCliente.addItem("Todos");
-        for (int i = 0; i < c.getClientesRepository().buscarTodos().size(); i++) {
-
-            clientes[i]=c.getClientesRepository().buscarTodos().get(i);
-        }
-        comoboBoxCliente.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "new javax.swing.DefaultComboBoxModel<Cliente>(clientes)" }));
-        comoboBoxCliente.setToolTipText("");
-
         jLabel2.setText("Cliente");
 
-        jLabel3.setText("Fechas");
+        jLabel3.setText("Fechas(AAAA-MM-DD)");
 
         fecha1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("dd/MM/yyyy"))));
 
@@ -132,6 +123,13 @@ public class DlgVentas extends javax.swing.JFrame {
             }
         });
 
+        Cliente[] clientes=new Cliente[c.getClientesRepository().buscarTodos().size()+1];
+        clientes[0]=new Cliente("RFC","Todos","123","","");
+        for (int i = 0; i < c.getClientesRepository().buscarTodos().size(); i++) {
+            clientes[i+1]=c.getClientesRepository().buscarTodos().get(i);
+        }
+        comboBoxClientes.setModel(new javax.swing.DefaultComboBoxModel<Cliente>(clientes));
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -143,12 +141,13 @@ public class DlgVentas extends javax.swing.JFrame {
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3)
                             .addComponent(jLabel2)
-                            .addComponent(comoboBoxCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(fecha1, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(fecha2, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(comboBoxClientes, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
+                                    .addComponent(fecha1, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(fecha2, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(68, 68, 68)
                         .addComponent(botonBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -159,9 +158,9 @@ public class DlgVentas extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addGap(37, 37, 37)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(comoboBoxCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(comboBoxClientes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -169,7 +168,7 @@ public class DlgVentas extends javax.swing.JFrame {
                     .addComponent(fecha2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(botonBuscar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30))
         );
@@ -441,10 +440,10 @@ public class DlgVentas extends javax.swing.JFrame {
 
     private void botonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBuscarActionPerformed
 
-        if (comoboBoxCliente.getSelectedIndex() == 0) {
+        if (comboBoxClientes.getSelectedIndex() == 0) {
             actualizarTablaVentas(c.getVentasRepository().buscarPorfecha(obtenerFecha1(), obtenerFecha2()));
         } else{
-            Cliente cliente = (Cliente) comoboBoxCliente.getSelectedItem();
+            Cliente cliente = (Cliente) comboBoxClientes.getSelectedItem();
             actualizarTablaVentas(c.getVentasRepository().buscarPorCliente(cliente, obtenerFecha1(), obtenerFecha2()));
         }
 
@@ -526,7 +525,7 @@ public class DlgVentas extends javax.swing.JFrame {
     private javax.swing.JTextField campoId;
     private javax.swing.JTextField campoSubtotal;
     private javax.swing.JTextField campoTotal;
-    private javax.swing.JComboBox<String> comoboBoxCliente;
+    private javax.swing.JComboBox<Cliente> comboBoxClientes;
     private javax.swing.JFormattedTextField fecha1;
     private javax.swing.JFormattedTextField fecha2;
     private javax.swing.JLabel jLabel1;

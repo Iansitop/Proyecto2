@@ -37,7 +37,7 @@ public class DlgProductos extends javax.swing.JFrame {
         boton_eliminar.setVisible(false);
         actualizarTabla(c.getProductoRepository().buscarTodos());
         botonMenuProductos.setEnabled(false);
-
+        comboBoxCategoria.setToolTipText("Categorias");
     }
     Control c = new Control();
 
@@ -153,16 +153,13 @@ public class DlgProductos extends javax.swing.JFrame {
         for (int i = 0; i < c.getCategoriaRepository().buscarTodos().size(); i++) {
             categorias[i]=c.getCategoriaRepository().buscarTodos().get(i);
         }
-        comboBoxCategoria.setModel(new javax.swing.DefaultComboBoxModel<Categoria>(categorias)
-        );
-        comboBoxCategoria.setSelectedIndex(-1);
+        comboBoxCategoria.setModel(new javax.swing.DefaultComboBoxModel<Categoria>(categorias));
 
         Proveedor[] proveedores=new Proveedor[c.getProveedoresRepository().buscarTodos().size()];
         for (int i = 0; i < c.getProveedoresRepository().buscarTodos().size(); i++) {
             proveedores[i]=c.getProveedoresRepository().buscarTodos().get(i);
         }
         comboBoxProveedor.setModel(new javax.swing.DefaultComboBoxModel<Proveedor>(proveedores));
-        comboBoxProveedor.setSelectedIndex(-1);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);

@@ -59,7 +59,7 @@ public class Proveedor implements Serializable {
         this.id = id;
     }
 
-    @Column(name = "rfc")
+    @Column(name = "rfc",unique=true)
     private String rfc;
 
     public String getRfc() {
@@ -147,7 +147,7 @@ public class Proveedor implements Serializable {
 
     @Override
     public String toString() {
-        return "Proveedor{" + "id=" + id + ", rfc=" + rfc + ", nombre=" + nombre + ", direccion=" + direccion + ", paginaWeb=" + paginaWeb + ", telefono=" + telefono + '}';
+        return nombre;
     }
 
 }
