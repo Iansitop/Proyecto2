@@ -130,7 +130,7 @@ public class DlgVentas extends javax.swing.JFrame {
 
         jLabel3.setText("Fechas(AAAA-MM-DD)");
 
-        fecha2.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("dd/MM/yyyy"))));
+        fecha2.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("yyyy/MM/dd"))));
 
         botonBuscar.setBackground(new java.awt.Color(102, 102, 255));
         botonBuscar.setForeground(new java.awt.Color(255, 255, 255));
@@ -148,7 +148,7 @@ public class DlgVentas extends javax.swing.JFrame {
         }
         comboBoxClientes.setModel(new javax.swing.DefaultComboBoxModel<Cliente>(clientes));
 
-        fecha1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("dd/MM/yyyy"))));
+        fecha1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("yyyy/MM/dd"))));
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
