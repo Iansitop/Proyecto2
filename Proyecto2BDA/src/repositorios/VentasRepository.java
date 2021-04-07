@@ -92,7 +92,7 @@ public class VentasRepository extends BaseRepository<Venta> {
     }
 
     public ArrayList<Venta> buscarPorfecha(Date fecha1, Date fecha2) {
-        Query query = createEntityManager().createQuery("Select v " + "from ventas " + "where v.fecha " + "Between " + fecha1 + " and " + fecha2 + "");
+        Query query = createEntityManager().createQuery("Select * " + "from ventas " + "where fecha " + "Between " + fecha1 + " and " + fecha2 + "");
         List<Venta> list = (List<Venta>) query.getResultList();
         return (ArrayList<Venta>) list;
     }

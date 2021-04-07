@@ -9,6 +9,8 @@ import entidades.Cliente;
 import entidades.Producto;
 import entidades.Venta;
 import entidades.VentaProducto;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
@@ -31,14 +33,32 @@ public class DlgVentas extends javax.swing.JFrame {
         initComponents();
         botonMenuVentas.setEnabled(false);
         Date date = new java.sql.Date(Calendar.getInstance().getTime().getTime());
-        DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
+        DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
         String fechaParaSQL = df.format(date);
         fecha1.setText(fechaParaSQL);
         fecha2.setText(fechaParaSQL);
-
+        centraVentana();
     }
     Control c = new Control();
-
+    
+    private void centraVentana() {
+    //Obtiene el tamaño de la pantalla
+    Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+    // Obtiene el tamaño de la ventana de la aplicación
+    Dimension frameSize = getSize();
+    // Se asegura que el tamaño de la ventana de la aplicación
+    // no exceda el tamaño de la pantalla
+    if (frameSize.height > screenSize.height) {
+    frameSize.height = screenSize.height;
+    }
+    if (frameSize.width > screenSize.width) {
+    frameSize.width = screenSize.width;
+    }
+    // Centra la ventana de la aplicación sobre la pantalla
+    setLocation((screenSize.width - frameSize.width) / 2,
+    (screenSize.height - frameSize.height) / 2);
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -448,6 +468,7 @@ public class DlgVentas extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_botonBuscarActionPerformed
+    //Cambiar el formato de la fecha
     public Date obtenerFecha1() {
         String f = fecha1.getText();
         String d = f.substring(0, 1);
@@ -458,7 +479,7 @@ public class DlgVentas extends javax.swing.JFrame {
         int anio = Integer.valueOf(a);
         return new Date(dia, mes, anio);
     }
-
+    //Cambiar el formato de la fecha
     public Date obtenerFecha2() {
         String f = fecha2.getText();
         String d = f.substring(0, 1);
