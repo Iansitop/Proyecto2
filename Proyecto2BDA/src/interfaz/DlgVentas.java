@@ -476,7 +476,7 @@ public class DlgVentas extends javax.swing.JFrame {
         String d = f.substring(8, 9);
         int dia = Integer.valueOf(d);
         int mes = Integer.valueOf(m);
-        int anio = Integer.valueOf(a);
+        int anio = Integer.valueOf(a)-1900;
         return new Date(anio, mes, dia);
     }
     //Cambiar el formato de la fecha
@@ -487,7 +487,7 @@ public class DlgVentas extends javax.swing.JFrame {
         String d = f.substring(8, 9);
         int dia = Integer.valueOf(d);
         int mes = Integer.valueOf(m);
-        int anio = Integer.valueOf(a);
+        int anio = Integer.valueOf(a)-1900;
         return new Date(anio, mes, dia);
     }
 
