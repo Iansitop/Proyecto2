@@ -471,24 +471,24 @@ public class DlgVentas extends javax.swing.JFrame {
     //Cambiar el formato de la fecha
     public Date obtenerFecha1() {
         String f = fecha1.getText();
-        String d = f.substring(0, 1);
-        String m = f.substring(3, 4);
-        String a = f.substring(6, 9);
+        String a = f.substring(0, 3);
+        String m = f.substring(5, 6);
+        String d = f.substring(8, 9);
         int dia = Integer.valueOf(d);
         int mes = Integer.valueOf(m);
         int anio = Integer.valueOf(a);
-        return new Date(dia, mes, anio);
+        return new Date(anio, mes, dia);
     }
     //Cambiar el formato de la fecha
     public Date obtenerFecha2() {
         String f = fecha2.getText();
-        String d = f.substring(0, 1);
-        String m = f.substring(3, 4);
-        String a = f.substring(6, 9);
+        String a = f.substring(0, 3);
+        String m = f.substring(5, 6);
+        String d = f.substring(8, 9);
         int dia = Integer.valueOf(d);
         int mes = Integer.valueOf(m);
         int anio = Integer.valueOf(a);
-        return new Date(dia, mes, anio);
+        return new Date(anio, mes, dia);
     }
 
     public void actualizarTablaVentas(ArrayList<Venta> listaTabla) {
