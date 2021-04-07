@@ -18,6 +18,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.text.BadLocationException;
+import org.decimal4j.util.DoubleRounder;
 import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
 import repositorios.Control;
 
@@ -567,8 +568,9 @@ public class DlgCompra extends javax.swing.JFrame {
                 subtotal+=carrito.get(i).getPrecioactual();
             }
             campoTextoSubTotal.setText(String.valueOf(subtotal));
-            subtotal=subtotal-Math.floor((subtotal*descuento));
-            campoTextoTotal.setText(String.valueOf(subtotal));
+            subtotal=subtotal-
+                    DoubleRounder.round((subtotal*descuento),2);
+             campoTextoTotal.setText(String.valueOf(subtotal));
         }catch(NumberFormatException nfe){
             JOptionPane.showMessageDialog(rootPane, "El descuento tiene que ser modificado a un valor numérico");
         }
