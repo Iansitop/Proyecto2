@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaQuery;
 
 /**
@@ -89,9 +90,15 @@ public class VentaProductoRepository extends BaseRepository<VentaProducto>{
     }
     
      public ArrayList<VentaProducto> buscarPorVenta(Venta venta) {
-        Query query = createEntityManager().createQuery("Select vp " + "from rel_ventaproducto " + "where vp.idVenta " + " = " + venta.getId());
-        List<VentaProducto> list = (List<VentaProducto>) query.getResultList();
-        return (ArrayList<VentaProducto>) list;
+        EntityManager em = createEntityManager();
+        em.getTransaction().begin();
+        int id = venta.getId();
+        String query = "Select vp FROM VentaProducto vp WHERE vp.idVenta  = :id";
+        TypedQuery<VentaProducto> q = em.createQuery(query, VentaProducto.class);
+        q.setParameter("id", id);
+        List<VentaProducto> listaP = (List<VentaProducto>) q.getResultList();
+        em.getTransaction().commit();
+        return (ArrayList<VentaProducto>) listaP;
 
       
     }

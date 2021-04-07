@@ -12,6 +12,8 @@ import java.util.Date;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
+import javax.persistence.TemporalType;
+import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaQuery;
 
 /**
@@ -92,16 +94,29 @@ public class VentasRepository extends BaseRepository<Venta> {
     }
 
     public ArrayList<Venta> buscarPorfecha(Date fecha1, Date fecha2) {
-        Query query = createEntityManager().createQuery("Select * " + "from ventas " + "where fecha " + "Between " + fecha1 + " and " + fecha2 + "");
-        List<Venta> list = (List<Venta>) query.getResultList();
-        return (ArrayList<Venta>) list;
+        EntityManager em = createEntityManager();
+        em.getTransaction().begin();
+        String query = "Select v FROM Venta v WHERE v.fecha BETWEEN :fecha1 AND :fecha2 ";
+        TypedQuery<Venta> q = em.createQuery(query, Venta.class);
+        q.setParameter("fecha1", fecha1, TemporalType.DATE);
+        q.setParameter("fecha2", fecha2, TemporalType.DATE);
+        List<Venta> ventas = (List<Venta>) q.getResultList();
+        em.getTransaction().commit();
+        return (ArrayList<Venta>) ventas;
     }
 
     public ArrayList<Venta> buscarPorCliente(Cliente cliente, Date fecha1, Date fecha2) {
-        Query query = createEntityManager().createQuery("Select v " + "from ventas " + "where v.idCliente " + " = " + cliente.getId() + " AND v.fecha"+"Between " + fecha1 + " and " + fecha2 + "");
-        List<Venta> list = (List<Venta>) query.getResultList();
+        EntityManager em = createEntityManager();
+        em.getTransaction().begin();
+        int id = cliente.getId();
+        String query = "Select v FROM ventas v WHERE v.idCliente = :id " + " AND v.fecha  BETWEEN : fecha1  AND : fecha2 ";
+        TypedQuery<Venta> q = em.createQuery(query, Venta.class);
+        q.setParameter("id", id);
+        q.setParameter("fecha1", fecha1, TemporalType.DATE);
+        q.setParameter("fecha2", fecha2, TemporalType.DATE);
+        List<Venta> list = (List<Venta>) q.getResultList();
+        em.getTransaction().commit();
         return (ArrayList<Venta>) list;
 
-      
     }
 }
