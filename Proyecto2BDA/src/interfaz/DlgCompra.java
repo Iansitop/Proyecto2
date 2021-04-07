@@ -568,8 +568,7 @@ public class DlgCompra extends javax.swing.JFrame {
                 subtotal+=carrito.get(i).getPrecioactual();
             }
             campoTextoSubTotal.setText(String.valueOf(subtotal));
-            subtotal=subtotal-
-                    DoubleRounder.round((subtotal*descuento),2);
+            subtotal=subtotal-DoubleRounder.round((subtotal*descuento),2);
              campoTextoTotal.setText(String.valueOf(subtotal));
         }catch(NumberFormatException nfe){
             JOptionPane.showMessageDialog(rootPane, "El descuento tiene que ser modificado a un valor numérico");

@@ -471,9 +471,9 @@ public class DlgVentas extends javax.swing.JFrame {
     //Cambiar el formato de la fecha
     public Date obtenerFecha1() {
         String f = fecha1.getText();
-        String a = f.substring(0, 3);
-        String m = f.substring(5, 6);
-        String d = f.substring(8, 9);
+        String a = f.substring(0, 4);
+        String m = f.substring(5, 7);
+        String d = f.substring(8, 10);
         int dia = Integer.valueOf(d);
         int mes = Integer.valueOf(m);
         int anio = Integer.valueOf(a)-1900;
@@ -482,9 +482,9 @@ public class DlgVentas extends javax.swing.JFrame {
     //Cambiar el formato de la fecha
     public Date obtenerFecha2() {
         String f = fecha2.getText();
-        String a = f.substring(0, 3);
-        String m = f.substring(5, 6);
-        String d = f.substring(8, 9);
+        String a = f.substring(0, 4);
+        String m = f.substring(5, 7);
+        String d = f.substring(8, 10);
         int dia = Integer.valueOf(d);
         int mes = Integer.valueOf(m);
         int anio = Integer.valueOf(a)-1900;
