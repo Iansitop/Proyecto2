@@ -91,7 +91,7 @@ public class ProductoRepository extends BaseRepository<Producto> {
     public ArrayList<Producto> buscarProductoPorId(int id) {
         EntityManager em = createEntityManager();
         em.getTransaction().begin();
-        String query = "Select p FROM Producto p WHERE p.id  LIKE '%:id%'";
+        String query = "SELECT * FROM Productos AS p WHERE p.id  LIKE '%:id%'";
         TypedQuery<Producto> q = em.createQuery(query, Producto.class);
         q.setParameter("id", id);
         List<Producto> listaP = (List<Producto>) q.getResultList();
@@ -103,7 +103,7 @@ public class ProductoRepository extends BaseRepository<Producto> {
     public ArrayList<Producto> buscarProductoPorNombre(String nombre) {
         EntityManager em = createEntityManager();
         em.getTransaction().begin();
-        String query = "Select p FROM Producto p WHERE p.nombre  LIKE '%:nombre%'";
+        String query = "SELECT * FROM Productos AS p WHERE p.nombre  LIKE '%:nombre%'";
         TypedQuery<Producto> q = em.createQuery(query, Producto.class);
         q.setParameter("nombre", nombre);
         List<Producto> listaP = (List<Producto>) q.getResultList();

@@ -93,7 +93,7 @@ public class VentaProductoRepository extends BaseRepository<VentaProducto>{
         EntityManager em = createEntityManager();
         em.getTransaction().begin();
         int id = venta.getId();
-        String query = "Select vp FROM VentaProducto vp WHERE vp.idVenta  = :id";
+        String query = "SELECT * FROM rel_ventaproducto AS vp WHERE vp.idVenta  = :id";
         TypedQuery<VentaProducto> q = em.createQuery(query, VentaProducto.class);
         q.setParameter("id", id);
         List<VentaProducto> listaP = (List<VentaProducto>) q.getResultList();

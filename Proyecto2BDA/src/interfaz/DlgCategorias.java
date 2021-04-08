@@ -74,6 +74,9 @@ public class DlgCategorias extends javax.swing.JFrame {
             }
         });
         campoTextoBuscar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                campoTextoBuscarKeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 campoTextoBuscarKeyTyped(evt);
             }
@@ -449,7 +452,7 @@ public class DlgCategorias extends javax.swing.JFrame {
     }//GEN-LAST:event_botonMenuVentasActionPerformed
 
     private void botonMenuCategoriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonMenuCategoriasActionPerformed
-        
+
     }//GEN-LAST:event_botonMenuCategoriasActionPerformed
 
     private void botonMenuProveedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonMenuProveedoresActionPerformed
@@ -499,7 +502,7 @@ public class DlgCategorias extends javax.swing.JFrame {
     }//GEN-LAST:event_nombre_categoriaKeyTyped
 
     private void descripcionKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_descripcionKeyTyped
-       if (evt.getKeyCode() == 8) {
+        if (evt.getKeyCode() == 8) {
         } else if (nombre_categoria.getText().length() > 99) {
             try {
                 nombre_categoria.setText(nombre_categoria.getText(0, 99));
@@ -510,22 +513,26 @@ public class DlgCategorias extends javax.swing.JFrame {
     }//GEN-LAST:event_descripcionKeyTyped
 
     private void campoTextoBuscarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campoTextoBuscarKeyTyped
-        if (!Character.isDigit(evt.getKeyChar()) 
-                && !Character.isLetter(evt.getKeyChar())
+        if (!Character.isLetter(evt.getKeyChar())
                 && !(evt.getKeyChar() == KeyEvent.VK_SPACE)
-                && !(evt.getKeyChar() == KeyEvent.VK_BACK_SPACE)) {
+                && !(evt.getKeyChar() == KeyEvent.VK_BACK_SPACE)
+                && !(Character.isDigit(evt.getKeyChar()))) {
             evt.consume();
-            JOptionPane.showMessageDialog(rootPane, "Ingrese sólo números y letras");
+            JOptionPane.showMessageDialog(rootPane, "Ingrese sólo letras y números");
         }
-        if(!campoTextoBuscar.getText().isEmpty()){
-            if(campoTextoBuscar.getText().matches("[A-Za-z]+")){
+
+    }//GEN-LAST:event_campoTextoBuscarKeyTyped
+
+    private void campoTextoBuscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campoTextoBuscarKeyReleased
+        if (!campoTextoBuscar.getText().isEmpty()) {
+            if (campoTextoBuscar.getText().matches("[A-Za-z]+")) {
                 actualizarTabla(c.getCategoriaRepository().buscarCategoriaPorNombre(campoTextoBuscar.getText()));
-            }else if(campoTextoBuscar.getText().matches("[0-9]+")){
+            } else if (campoTextoBuscar.getText().matches("[0-9]+")) {
                 int id = Integer.valueOf(campoTextoBuscar.getText());
                 actualizarTabla(c.getCategoriaRepository().buscarCategoriaPorId(id));
             }
         }
-    }//GEN-LAST:event_campoTextoBuscarKeyTyped
+    }//GEN-LAST:event_campoTextoBuscarKeyReleased
 
     public void actualizarTabla(ArrayList<Categoria> listaTabla) {
         DefaultTableModel model = new DefaultTableModel();

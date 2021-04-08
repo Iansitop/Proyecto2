@@ -96,7 +96,7 @@ public class VentasRepository extends BaseRepository<Venta> {
     public ArrayList<Venta> buscarPorfecha(Date fecha1, Date fecha2) {
         EntityManager em = createEntityManager();
         em.getTransaction().begin();
-        String query = "Select v FROM Venta v WHERE v.fecha BETWEEN :fecha1 AND :fecha2 ";
+        String query = "SELECT * FROM Ventas AS v WHERE v.fecha BETWEEN :fecha1 AND :fecha2 ";
         TypedQuery<Venta> q = em.createQuery(query, Venta.class);
         q.setParameter("fecha1", fecha1, TemporalType.DATE);
         q.setParameter("fecha2", fecha2, TemporalType.DATE);
@@ -109,7 +109,7 @@ public class VentasRepository extends BaseRepository<Venta> {
         EntityManager em = createEntityManager();
         em.getTransaction().begin();
         int id = cliente.getId();
-        String query = "Select v FROM ventas v WHERE v.idCliente = :id " + " AND v.fecha  BETWEEN : fecha1  AND : fecha2 ";
+        String query = "SELECT * FROM ventas AS v WHERE v.idCliente = :id " + " AND v.fecha  BETWEEN : fecha1  AND : fecha2 ";
         TypedQuery<Venta> q = em.createQuery(query, Venta.class);
         q.setParameter("id", id);
         q.setParameter("fecha1", fecha1, TemporalType.DATE);

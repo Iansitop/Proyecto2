@@ -661,12 +661,12 @@ public class DlgProductos extends javax.swing.JFrame {
     }//GEN-LAST:event_stockKeyTyped
 
     private void campoTextoBuscarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campoTextoBuscarKeyTyped
-        if (!Character.isDigit(evt.getKeyChar()) 
-                && !Character.isLetter(evt.getKeyChar())
+        if (!Character.isLetter(evt.getKeyChar())
                 && !(evt.getKeyChar() == KeyEvent.VK_SPACE)
-                && !(evt.getKeyChar() == KeyEvent.VK_BACK_SPACE)) {
+                && !(evt.getKeyChar() == KeyEvent.VK_BACK_SPACE)
+                && !(Character.isDigit(evt.getKeyChar()))) {
             evt.consume();
-            JOptionPane.showMessageDialog(rootPane, "Ingrese sólo números y letras");
+            JOptionPane.showMessageDialog(rootPane, "Ingrese sólo letras y números");
         }
 
     }//GEN-LAST:event_campoTextoBuscarKeyTyped

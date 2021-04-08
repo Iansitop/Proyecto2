@@ -312,6 +312,9 @@ public class DlgClientes extends javax.swing.JFrame {
             }
         });
         campoTextoBuscar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                campoTextoBuscarKeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 campoTextoBuscarKeyTyped(evt);
             }
@@ -649,13 +652,17 @@ public class DlgClientes extends javax.swing.JFrame {
     }//GEN-LAST:event_botonMenuClientesActionPerformed
 
     private void campoTextoBuscarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campoTextoBuscarKeyTyped
-        if (!Character.isDigit(evt.getKeyChar()) 
-                && !Character.isLetter(evt.getKeyChar())
+        if (!Character.isLetter(evt.getKeyChar())
                 && !(evt.getKeyChar() == KeyEvent.VK_SPACE)
-                && !(evt.getKeyChar() == KeyEvent.VK_BACK_SPACE)) {
+                && !(evt.getKeyChar() == KeyEvent.VK_BACK_SPACE)
+                && !(Character.isDigit(evt.getKeyChar()))) {
             evt.consume();
-            JOptionPane.showMessageDialog(rootPane, "Ingrese sólo números y letras");
+            JOptionPane.showMessageDialog(rootPane, "Ingrese sólo letras y números");
         }
+        
+    }//GEN-LAST:event_campoTextoBuscarKeyTyped
+
+    private void campoTextoBuscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campoTextoBuscarKeyReleased
         if(!campoTextoBuscar.getText().isEmpty()){
             if(campoTextoBuscar.getText().matches("[A-Za-z]+")){
                 actualizarTabla(c.getClientesRepository().buscarClientePorNombre(campoTextoBuscar.getText()));
@@ -664,7 +671,7 @@ public class DlgClientes extends javax.swing.JFrame {
                 actualizarTabla(c.getClientesRepository().buscarClientePorId(id));
             }
         }
-    }//GEN-LAST:event_campoTextoBuscarKeyTyped
+    }//GEN-LAST:event_campoTextoBuscarKeyReleased
     
     
     public void actualizarTabla(ArrayList<Cliente> listaTabla) {
