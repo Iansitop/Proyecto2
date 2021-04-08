@@ -19,7 +19,6 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.text.BadLocationException;
 import org.decimal4j.util.DoubleRounder;
-
 import repositorios.Control;
 
 /**
@@ -535,7 +534,7 @@ public class DlgCompra extends javax.swing.JFrame {
     }//GEN-LAST:event_botonMenuProveedoresActionPerformed
 
     private void botonMenuCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonMenuCompraActionPerformed
-        
+
     }//GEN-LAST:event_botonMenuCompraActionPerformed
 
     private void boton_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_eliminarActionPerformed
@@ -543,7 +542,6 @@ public class DlgCompra extends javax.swing.JFrame {
         //int idVentaProducto = Integer.valueOf(id_cliente.getText());
         //Aquí va un Inner join que busque un nombre y regrese un ID
         //c.getVentaProductoRepository().eliminar(idVentaProducto);
-
         boton_limpiarActionPerformed(evt);
 
         actualizarTabla(carrito);
@@ -553,32 +551,53 @@ public class DlgCompra extends javax.swing.JFrame {
 
     private void botonAgregarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAgregarProductoActionPerformed
         float descuento;
-        try{
-            descuento=Float.parseFloat(campoTextoDescuento.getText())/100;
-            Producto posicion=c.getProductoRepository().buscarPorId(comboBoxProductos.getItemAt(comboBoxProductos.getSelectedIndex()).getId());
-            posicion.setPrecioactual(Float.parseFloat(campoTextoSubTotalVentanilla.getText()));
-            posicion.setStock(Integer.parseInt(campoTextoCantidadVentanilla.getText()));
-            if(Integer.parseInt(campoTextoCantidadVentanilla.getText())!=0){
-                carrito.add(posicion);
+        try {
+            descuento = Float.parseFloat(campoTextoDescuento.getText()) / 100;
+            Producto posicion = c.getProductoRepository().buscarPorId(comboBoxProductos.getItemAt(comboBoxProductos.getSelectedIndex()).getId());
+            
+            Producto fin=null;
+            if (Integer.parseInt(campoTextoCantidadVentanilla.getText()) != 0) {
+                if (carrito.contains(posicion)) {
+                    Producto producto = posicion;
+                    int cantidadSumada=carrito.get(carrito.indexOf(posicion)).getStock() + Integer.parseInt(campoTextoCantidadVentanilla.getText());
+                    if(cantidadSumada> posicion.getStock()){
+                        throw new ClassNotFoundException();
+                    }
+                    producto.setPrecioactual(carrito.get(carrito.indexOf(posicion)).getPrecioactual() + Float.parseFloat(campoTextoSubTotalVentanilla.getText()));
+                    producto.setStock(carrito.get(carrito.indexOf(posicion)).getStock() + Integer.parseInt(campoTextoCantidadVentanilla.getText()));
+                    carrito.remove(posicion);
+                    carrito.add(producto);
+                    fin=producto;
+                }
+                if(fin==null){
+                    posicion.setPrecioactual(Float.parseFloat(campoTextoSubTotalVentanilla.getText()));
+                    posicion.setStock(Integer.parseInt(campoTextoCantidadVentanilla.getText()));
+                    carrito.add(posicion);
+                }
+                    actualizarTabla(carrito);
+                    actualizarPantalla();
+
+                    double subtotal = 0;
+                    for (int i = 0; i < carrito.size(); i++) {
+                        subtotal += carrito.get(i).getPrecioactual();
+                    }
+                    campoTextoSubTotal.setText(String.valueOf(subtotal));
+                    subtotal = subtotal - DoubleRounder.round((subtotal * descuento), 2);
+                    campoTextoTotal.setText(String.valueOf(subtotal));
+            } else {
+                JOptionPane.showMessageDialog(rootPane, "El producto tiene que tener mas de 0 en cantidad");
             }
-            actualizarTabla(carrito);
-            actualizarPantalla();
-            double subtotal=0;
-            for (int i = 0; i < carrito.size(); i++) {
-                subtotal+=carrito.get(i).getPrecioactual();
-            }
-            campoTextoSubTotal.setText(String.valueOf(subtotal));
-            subtotal=subtotal-DoubleRounder.round((subtotal*descuento),2);
-             campoTextoTotal.setText(String.valueOf(subtotal));
-        }catch(NumberFormatException nfe){
+        } catch (NumberFormatException nfe) {
             JOptionPane.showMessageDialog(rootPane, "El descuento tiene que ser modificado a un valor numérico");
+        } catch (ClassNotFoundException cnf) {
+            JOptionPane.showMessageDialog(rootPane, "No puedes añadir más por que no hay suficiente Stock");
         }
     }//GEN-LAST:event_botonAgregarProductoActionPerformed
 
     private void botonMasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonMasActionPerformed
         String cantidad=String.valueOf(Integer.parseInt(campoTextoCantidadVentanilla.getText())+1);
         Producto posicion=c.getProductoRepository().buscarPorId(comboBoxProductos.getItemAt(comboBoxProductos.getSelectedIndex()).getId());
-        //Aquí va un if cantidad > stock que no cambie
+        
         if(posicion.getStock()-1<Integer.parseInt(campoTextoCantidadVentanilla.getText())){
             
         }else{
