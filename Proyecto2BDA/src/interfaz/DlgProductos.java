@@ -359,6 +359,9 @@ public class DlgProductos extends javax.swing.JFrame {
             }
         });
         campoTextoBuscar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                campoTextoBuscarKeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 campoTextoBuscarKeyTyped(evt);
             }
@@ -665,7 +668,11 @@ public class DlgProductos extends javax.swing.JFrame {
             evt.consume();
             JOptionPane.showMessageDialog(rootPane, "Ingrese sólo números y letras");
         }
-        if(!campoTextoBuscar.getText().isEmpty()){
+
+    }//GEN-LAST:event_campoTextoBuscarKeyTyped
+
+    private void campoTextoBuscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campoTextoBuscarKeyReleased
+                if(!campoTextoBuscar.getText().isEmpty()){
             if(campoTextoBuscar.getText().matches("[A-Za-z]+")){
                 actualizarTabla(c.getProductoRepository().buscarProductoPorNombre(campoTextoBuscar.getText()));
             }else if(campoTextoBuscar.getText().matches("[0-9]+")){
@@ -673,7 +680,7 @@ public class DlgProductos extends javax.swing.JFrame {
                 actualizarTabla(c.getProductoRepository().buscarProductoPorId(id));
             }
         }
-    }//GEN-LAST:event_campoTextoBuscarKeyTyped
+    }//GEN-LAST:event_campoTextoBuscarKeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
