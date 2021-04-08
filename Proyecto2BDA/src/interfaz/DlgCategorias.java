@@ -6,6 +6,7 @@
 package interfaz;
 
 import entidades.Categoria;
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -70,6 +71,11 @@ public class DlgCategorias extends javax.swing.JFrame {
         campoTextoBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 campoTextoBuscarActionPerformed(evt);
+            }
+        });
+        campoTextoBuscar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                campoTextoBuscarKeyTyped(evt);
             }
         });
 
@@ -502,6 +508,24 @@ public class DlgCategorias extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_descripcionKeyTyped
+
+    private void campoTextoBuscarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campoTextoBuscarKeyTyped
+        if (!Character.isDigit(evt.getKeyChar()) 
+                && !Character.isLetter(evt.getKeyChar())
+                && !(evt.getKeyChar() == KeyEvent.VK_SPACE)
+                && !(evt.getKeyChar() == KeyEvent.VK_BACK_SPACE)) {
+            evt.consume();
+            JOptionPane.showMessageDialog(rootPane, "Ingrese sólo números y letras");
+        }
+        if(!campoTextoBuscar.getText().isEmpty()){
+            if(campoTextoBuscar.getText().matches("[A-Za-z]+")){
+                actualizarTabla(c.getCategoriaRepository().buscarCategoriaPorNombre(campoTextoBuscar.getText()));
+            }else if(campoTextoBuscar.getText().matches("[0-9]+")){
+                int id = Integer.valueOf(campoTextoBuscar.getText());
+                actualizarTabla(c.getCategoriaRepository().buscarCategoriaPorId(id));
+            }
+        }
+    }//GEN-LAST:event_campoTextoBuscarKeyTyped
 
     public void actualizarTabla(ArrayList<Categoria> listaTabla) {
         DefaultTableModel model = new DefaultTableModel();

@@ -19,7 +19,7 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.text.BadLocationException;
 import org.decimal4j.util.DoubleRounder;
-import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
+
 import repositorios.Control;
 
 /**

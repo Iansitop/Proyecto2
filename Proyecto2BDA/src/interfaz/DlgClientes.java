@@ -6,6 +6,7 @@
 package interfaz;
 
 import entidades.Cliente;
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -53,14 +54,14 @@ public class DlgClientes extends javax.swing.JFrame {
         botonMenuCompra = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jSeparator3 = new javax.swing.JSeparator();
-        id_cliente2 = new javax.swing.JTextField();
-        nombre_cliente2 = new javax.swing.JTextField();
-        rfc_cliente2 = new javax.swing.JTextField();
-        telefono2_cli2 = new javax.swing.JTextField();
-        direccion_cliente2 = new javax.swing.JTextField();
-        telefono1_cli2 = new javax.swing.JTextField();
-        boton_agregar2 = new javax.swing.JButton();
-        boton_limpiar2 = new javax.swing.JButton();
+        id_cliente = new javax.swing.JTextField();
+        nombre_cliente = new javax.swing.JTextField();
+        rfc_cliente = new javax.swing.JTextField();
+        telefono2_cli = new javax.swing.JTextField();
+        direccion_cliente = new javax.swing.JTextField();
+        telefono1_cli = new javax.swing.JTextField();
+        boton_agregar = new javax.swing.JButton();
+        boton_limpiar = new javax.swing.JButton();
         campoTextoBuscar = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabla_clientes = new javax.swing.JTable();
@@ -137,7 +138,7 @@ public class DlgClientes extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(17, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel1)
@@ -173,87 +174,87 @@ public class DlgClientes extends javax.swing.JFrame {
 
         jPanel5.setBackground(new java.awt.Color(153, 153, 255));
 
-        id_cliente2.setEditable(false);
-        id_cliente2.setText("ID");
-        id_cliente2.addActionListener(new java.awt.event.ActionListener() {
+        id_cliente.setEditable(false);
+        id_cliente.setText("ID");
+        id_cliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 id_clienteActionPerformed(evt);
             }
         });
 
-        nombre_cliente2.setText("Nombre");
-        nombre_cliente2.addActionListener(new java.awt.event.ActionListener() {
+        nombre_cliente.setText("Nombre");
+        nombre_cliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nombre_clienteActionPerformed(evt);
             }
         });
-        nombre_cliente2.addKeyListener(new java.awt.event.KeyAdapter() {
+        nombre_cliente.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 nombre_clienteKeyPressed(evt);
             }
         });
 
-        rfc_cliente2.setText("RFC");
-        rfc_cliente2.addActionListener(new java.awt.event.ActionListener() {
+        rfc_cliente.setText("RFC");
+        rfc_cliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rfc_clienteActionPerformed(evt);
             }
         });
-        rfc_cliente2.addKeyListener(new java.awt.event.KeyAdapter() {
+        rfc_cliente.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 rfc_clienteKeyPressed(evt);
             }
         });
 
-        telefono2_cli2.setText("Teléfono 2");
-        telefono2_cli2.addActionListener(new java.awt.event.ActionListener() {
+        telefono2_cli.setText("Teléfono 2");
+        telefono2_cli.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 telefono2_cliActionPerformed(evt);
             }
         });
-        telefono2_cli2.addKeyListener(new java.awt.event.KeyAdapter() {
+        telefono2_cli.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 telefono2_cliKeyPressed(evt);
             }
         });
 
-        direccion_cliente2.setText("Dirección");
-        direccion_cliente2.addActionListener(new java.awt.event.ActionListener() {
+        direccion_cliente.setText("Dirección");
+        direccion_cliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 direccion_clienteActionPerformed(evt);
             }
         });
-        direccion_cliente2.addKeyListener(new java.awt.event.KeyAdapter() {
+        direccion_cliente.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 direccion_clienteKeyPressed(evt);
             }
         });
 
-        telefono1_cli2.setText("Teléfono 1");
-        telefono1_cli2.addActionListener(new java.awt.event.ActionListener() {
+        telefono1_cli.setText("Teléfono 1");
+        telefono1_cli.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 telefono1_cliActionPerformed(evt);
             }
         });
-        telefono1_cli2.addKeyListener(new java.awt.event.KeyAdapter() {
+        telefono1_cli.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 telefono1_cliKeyPressed(evt);
             }
         });
 
-        boton_agregar2.setBackground(new java.awt.Color(102, 102, 255));
-        boton_agregar2.setForeground(new java.awt.Color(255, 255, 255));
-        boton_agregar2.setText("Agregar");
-        boton_agregar2.addActionListener(new java.awt.event.ActionListener() {
+        boton_agregar.setBackground(new java.awt.Color(102, 102, 255));
+        boton_agregar.setForeground(new java.awt.Color(255, 255, 255));
+        boton_agregar.setText("Agregar");
+        boton_agregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 boton_agregarActionPerformed(evt);
             }
         });
 
-        boton_limpiar2.setBackground(new java.awt.Color(102, 102, 255));
-        boton_limpiar2.setForeground(new java.awt.Color(255, 255, 255));
-        boton_limpiar2.setText("Cancelar");
-        boton_limpiar2.addActionListener(new java.awt.event.ActionListener() {
+        boton_limpiar.setBackground(new java.awt.Color(102, 102, 255));
+        boton_limpiar.setForeground(new java.awt.Color(255, 255, 255));
+        boton_limpiar.setText("Cancelar");
+        boton_limpiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 boton_limpiarActionPerformed(evt);
             }
@@ -267,47 +268,52 @@ public class DlgClientes extends javax.swing.JFrame {
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGap(53, 53, 53)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(boton_limpiar2, javax.swing.GroupLayout.DEFAULT_SIZE, 83, Short.MAX_VALUE)
-                    .addComponent(boton_agregar2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(boton_limpiar, javax.swing.GroupLayout.DEFAULT_SIZE, 83, Short.MAX_VALUE)
+                    .addComponent(boton_agregar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(65, Short.MAX_VALUE))
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGap(9, 9, 9)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(id_cliente2)
-                    .addComponent(nombre_cliente2)
-                    .addComponent(rfc_cliente2)
-                    .addComponent(telefono2_cli2)
-                    .addComponent(direccion_cliente2)
-                    .addComponent(telefono1_cli2))
+                    .addComponent(id_cliente)
+                    .addComponent(nombre_cliente)
+                    .addComponent(rfc_cliente)
+                    .addComponent(telefono2_cli)
+                    .addComponent(direccion_cliente)
+                    .addComponent(telefono1_cli))
                 .addContainerGap())
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                 .addGap(23, 23, 23)
-                .addComponent(id_cliente2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(id_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(rfc_cliente2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(rfc_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(nombre_cliente2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(nombre_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(direccion_cliente2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(direccion_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(telefono1_cli2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(telefono1_cli, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(telefono2_cli2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(telefono2_cli, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(boton_agregar2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(boton_agregar, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(41, 41, 41)
-                .addComponent(boton_limpiar2)
+                .addComponent(boton_limpiar)
                 .addGap(73, 73, 73))
         );
 
         campoTextoBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 campoTextoBuscarActionPerformed(evt);
+            }
+        });
+        campoTextoBuscar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                campoTextoBuscarKeyTyped(evt);
             }
         });
 
@@ -641,6 +647,24 @@ public class DlgClientes extends javax.swing.JFrame {
     private void botonMenuClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonMenuClientesActionPerformed
 
     }//GEN-LAST:event_botonMenuClientesActionPerformed
+
+    private void campoTextoBuscarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campoTextoBuscarKeyTyped
+        if (!Character.isDigit(evt.getKeyChar()) 
+                && !Character.isLetter(evt.getKeyChar())
+                && !(evt.getKeyChar() == KeyEvent.VK_SPACE)
+                && !(evt.getKeyChar() == KeyEvent.VK_BACK_SPACE)) {
+            evt.consume();
+            JOptionPane.showMessageDialog(rootPane, "Ingrese sólo números y letras");
+        }
+        if(!campoTextoBuscar.getText().isEmpty()){
+            if(campoTextoBuscar.getText().matches("[A-Za-z]+")){
+                actualizarTabla(c.getClientesRepository().buscarClientePorNombre(campoTextoBuscar.getText()));
+            }else if(campoTextoBuscar.getText().matches("[0-9]+")){
+                int id = Integer.valueOf(campoTextoBuscar.getText());
+                actualizarTabla(c.getClientesRepository().buscarClientePorId(id));
+            }
+        }
+    }//GEN-LAST:event_campoTextoBuscarKeyTyped
     
     
     public void actualizarTabla(ArrayList<Cliente> listaTabla) {
@@ -704,41 +728,21 @@ public class DlgClientes extends javax.swing.JFrame {
     private javax.swing.JButton botonMenuVentas;
     private javax.swing.JButton boton_actualizar;
     private javax.swing.JButton boton_agregar;
-    private javax.swing.JButton boton_agregar1;
-    private javax.swing.JButton boton_agregar2;
     private javax.swing.JButton boton_eliminar;
     private javax.swing.JButton boton_limpiar;
-    private javax.swing.JButton boton_limpiar1;
-    private javax.swing.JButton boton_limpiar2;
     private javax.swing.JTextField campoTextoBuscar;
     private javax.swing.JTextField direccion_cliente;
-    private javax.swing.JTextField direccion_cliente1;
-    private javax.swing.JTextField direccion_cliente2;
     private javax.swing.JTextField id_cliente;
-    private javax.swing.JTextField id_cliente1;
-    private javax.swing.JTextField id_cliente2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JTextField nombre_cliente;
-    private javax.swing.JTextField nombre_cliente1;
-    private javax.swing.JTextField nombre_cliente2;
     private javax.swing.JTextField rfc_cliente;
-    private javax.swing.JTextField rfc_cliente1;
-    private javax.swing.JTextField rfc_cliente2;
     private javax.swing.JTable tabla_clientes;
     private javax.swing.JTextField telefono1_cli;
-    private javax.swing.JTextField telefono1_cli1;
-    private javax.swing.JTextField telefono1_cli2;
     private javax.swing.JTextField telefono2_cli;
-    private javax.swing.JTextField telefono2_cli1;
-    private javax.swing.JTextField telefono2_cli2;
     // End of variables declaration//GEN-END:variables
 }

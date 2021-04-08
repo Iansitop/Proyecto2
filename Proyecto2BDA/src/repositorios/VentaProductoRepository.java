@@ -100,7 +100,6 @@ public class VentaProductoRepository extends BaseRepository<VentaProducto>{
         em.getTransaction().commit();
         return (ArrayList<VentaProducto>) listaP;
 
-      
     }
 
     

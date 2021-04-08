@@ -7,6 +7,7 @@ package interfaz;
 
 import entidades.Cliente;
 import entidades.Proveedor;
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -70,6 +71,11 @@ public class DlgProveedor extends javax.swing.JFrame {
         campoTextoBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 campoTextoBuscarActionPerformed(evt);
+            }
+        });
+        campoTextoBuscar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                campoTextoBuscarKeyTyped(evt);
             }
         });
 
@@ -616,6 +622,24 @@ public class DlgProveedor extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_campoTextoTelefonoKeyPressed
+
+    private void campoTextoBuscarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campoTextoBuscarKeyTyped
+        if (!Character.isDigit(evt.getKeyChar()) 
+                && !Character.isLetter(evt.getKeyChar())
+                && !(evt.getKeyChar() == KeyEvent.VK_SPACE)
+                && !(evt.getKeyChar() == KeyEvent.VK_BACK_SPACE)) {
+            evt.consume();
+            JOptionPane.showMessageDialog(rootPane, "Ingrese sólo números y letras");
+        }
+        if(!campoTextoBuscar.getText().isEmpty()){
+            if(campoTextoBuscar.getText().matches("[A-Za-z]+")){
+                actualizarTabla(c.getProveedoresRepository().buscarProveedorPorNombre(campoTextoBuscar.getText()));
+            }else if(campoTextoBuscar.getText().matches("[0-9]+")){
+                int id = Integer.valueOf(campoTextoBuscar.getText());
+                actualizarTabla(c.getProveedoresRepository().buscarProveedorPorId(id));
+            }
+        }
+    }//GEN-LAST:event_campoTextoBuscarKeyTyped
 
     public void actualizarTabla(ArrayList<Proveedor> listaTabla) {
         DefaultTableModel model = new DefaultTableModel();

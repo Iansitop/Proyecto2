@@ -104,7 +104,7 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="17" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
                               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
@@ -258,20 +258,20 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="boton_limpiar2" pref="83" max="32767" attributes="0"/>
-                          <Component id="boton_agregar2" max="32767" attributes="0"/>
+                          <Component id="boton_limpiar" pref="83" max="32767" attributes="0"/>
+                          <Component id="boton_agregar" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace pref="65" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="id_cliente2" alignment="0" max="32767" attributes="0"/>
-                          <Component id="nombre_cliente2" alignment="0" max="32767" attributes="0"/>
-                          <Component id="rfc_cliente2" alignment="0" max="32767" attributes="0"/>
-                          <Component id="telefono2_cli2" alignment="0" max="32767" attributes="0"/>
-                          <Component id="direccion_cliente2" alignment="0" max="32767" attributes="0"/>
-                          <Component id="telefono1_cli2" alignment="0" max="32767" attributes="0"/>
+                          <Component id="id_cliente" alignment="0" max="32767" attributes="0"/>
+                          <Component id="nombre_cliente" alignment="0" max="32767" attributes="0"/>
+                          <Component id="rfc_cliente" alignment="0" max="32767" attributes="0"/>
+                          <Component id="telefono2_cli" alignment="0" max="32767" attributes="0"/>
+                          <Component id="direccion_cliente" alignment="0" max="32767" attributes="0"/>
+                          <Component id="telefono1_cli" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -281,23 +281,23 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
-                      <Component id="id_cliente2" min="-2" max="-2" attributes="0"/>
+                      <Component id="id_cliente" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="rfc_cliente2" min="-2" max="-2" attributes="0"/>
+                      <Component id="rfc_cliente" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="nombre_cliente2" min="-2" max="-2" attributes="0"/>
+                      <Component id="nombre_cliente" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="direccion_cliente2" min="-2" max="-2" attributes="0"/>
+                      <Component id="direccion_cliente" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="telefono1_cli2" min="-2" max="-2" attributes="0"/>
+                      <Component id="telefono1_cli" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="telefono2_cli2" min="-2" max="-2" attributes="0"/>
+                      <Component id="telefono2_cli" min="-2" max="-2" attributes="0"/>
                       <EmptySpace pref="14" max="32767" attributes="0"/>
                       <Component id="jSeparator3" min="-2" pref="10" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="boton_agregar2" min="-2" pref="23" max="-2" attributes="0"/>
+                      <Component id="boton_agregar" min="-2" pref="23" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
-                      <Component id="boton_limpiar2" min="-2" max="-2" attributes="0"/>
+                      <Component id="boton_limpiar" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -306,7 +306,7 @@
           <SubComponents>
             <Component class="javax.swing.JSeparator" name="jSeparator3">
             </Component>
-            <Component class="javax.swing.JTextField" name="id_cliente2">
+            <Component class="javax.swing.JTextField" name="id_cliente">
               <Properties>
                 <Property name="editable" type="boolean" value="false"/>
                 <Property name="text" type="java.lang.String" value="ID"/>
@@ -315,7 +315,7 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="id_clienteActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="nombre_cliente2">
+            <Component class="javax.swing.JTextField" name="nombre_cliente">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Nombre"/>
               </Properties>
@@ -324,7 +324,7 @@
                 <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="nombre_clienteKeyPressed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="rfc_cliente2">
+            <Component class="javax.swing.JTextField" name="rfc_cliente">
               <Properties>
                 <Property name="text" type="java.lang.String" value="RFC"/>
               </Properties>
@@ -333,7 +333,7 @@
                 <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="rfc_clienteKeyPressed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="telefono2_cli2">
+            <Component class="javax.swing.JTextField" name="telefono2_cli">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Tel&#xe9;fono 2"/>
               </Properties>
@@ -342,7 +342,7 @@
                 <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="telefono2_cliKeyPressed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="direccion_cliente2">
+            <Component class="javax.swing.JTextField" name="direccion_cliente">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Direcci&#xf3;n"/>
               </Properties>
@@ -351,7 +351,7 @@
                 <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="direccion_clienteKeyPressed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="telefono1_cli2">
+            <Component class="javax.swing.JTextField" name="telefono1_cli">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Tel&#xe9;fono 1"/>
               </Properties>
@@ -360,7 +360,7 @@
                 <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="telefono1_cliKeyPressed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="boton_agregar2">
+            <Component class="javax.swing.JButton" name="boton_agregar">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="66" red="66" type="rgb"/>
@@ -374,7 +374,7 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="boton_agregarActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="boton_limpiar2">
+            <Component class="javax.swing.JButton" name="boton_limpiar">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="66" red="66" type="rgb"/>
@@ -393,6 +393,7 @@
         <Component class="javax.swing.JTextField" name="campoTextoBuscar">
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="campoTextoBuscarActionPerformed"/>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="campoTextoBuscarKeyTyped"/>
           </Events>
         </Component>
         <Container class="javax.swing.JScrollPane" name="jScrollPane1">

@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaQuery;
 
 /**
@@ -86,5 +87,27 @@ public class CategoriaRepository extends BaseRepository<Categoria> {
         em.getTransaction().commit();
         return categorias = new ArrayList(listaCategorias);
     }
+     public ArrayList<Categoria> buscarCategoriaPorId(int id) {
+        EntityManager em = createEntityManager();
+        em.getTransaction().begin();
+        String query = "Select c FROM Categoria c WHERE c.id  LIKE '%:id%'";
+        TypedQuery<Categoria> q = em.createQuery(query, Categoria.class);
+        q.setParameter("id", id);
+        List<Categoria> listaC = (List<Categoria>) q.getResultList();
+        em.getTransaction().commit();
+        return (ArrayList<Categoria>) listaC;
 
+    }
+
+    public ArrayList<Categoria> buscarCategoriaPorNombre(String nombre) {
+        EntityManager em = createEntityManager();
+        em.getTransaction().begin();
+        String query = "Select c FROM Categoria c WHERE c.nombre  LIKE '%:nombre%'";
+        TypedQuery<Categoria> q = em.createQuery(query, Categoria.class);
+        q.setParameter("nombre", nombre);
+        List<Categoria> listaC = (List<Categoria>) q.getResultList();
+        em.getTransaction().commit();
+        return (ArrayList<Categoria>) listaC;
+
+    }
 }

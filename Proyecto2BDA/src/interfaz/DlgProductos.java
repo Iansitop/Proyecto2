@@ -358,6 +358,11 @@ public class DlgProductos extends javax.swing.JFrame {
                 campoTextoBuscarActionPerformed(evt);
             }
         });
+        campoTextoBuscar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                campoTextoBuscarKeyTyped(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -385,8 +390,7 @@ public class DlgProductos extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, 0))
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(58, 58, 58)
                         .addComponent(campoTextoBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -396,7 +400,7 @@ public class DlgProductos extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(boton_eliminar)
                             .addComponent(boton_actualizar))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addContainerGap())))
         );
 
         pack();
@@ -652,6 +656,24 @@ public class DlgProductos extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_stockKeyTyped
+
+    private void campoTextoBuscarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campoTextoBuscarKeyTyped
+        if (!Character.isDigit(evt.getKeyChar()) 
+                && !Character.isLetter(evt.getKeyChar())
+                && !(evt.getKeyChar() == KeyEvent.VK_SPACE)
+                && !(evt.getKeyChar() == KeyEvent.VK_BACK_SPACE)) {
+            evt.consume();
+            JOptionPane.showMessageDialog(rootPane, "Ingrese sólo números y letras");
+        }
+        if(!campoTextoBuscar.getText().isEmpty()){
+            if(campoTextoBuscar.getText().matches("[A-Za-z]+")){
+                actualizarTabla(c.getProductoRepository().buscarProductoPorNombre(campoTextoBuscar.getText()));
+            }else if(campoTextoBuscar.getText().matches("[0-9]+")){
+                int id = Integer.valueOf(campoTextoBuscar.getText());
+                actualizarTabla(c.getProductoRepository().buscarProductoPorId(id));
+            }
+        }
+    }//GEN-LAST:event_campoTextoBuscarKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
