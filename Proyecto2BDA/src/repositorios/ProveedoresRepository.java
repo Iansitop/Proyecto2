@@ -94,7 +94,7 @@ public class ProveedoresRepository extends BaseRepository<Proveedor> {
     public ArrayList<Proveedor> buscarProveedorPorId(int id) {
         EntityManager em = createEntityManager();
         em.getTransaction().begin();
-        String query = "SELECT * FROM Proveedores AS p WHERE p.id  LIKE '%:id%'";
+        String query = "SELECT p FROM Proveedor p WHERE p.id  LIKE :id%";
         TypedQuery<Proveedor> q = em.createQuery(query, Proveedor.class);
         q.setParameter("id", id);
         List<Proveedor> listaP = (List<Proveedor>) q.getResultList();
@@ -106,7 +106,7 @@ public class ProveedoresRepository extends BaseRepository<Proveedor> {
     public ArrayList<Proveedor> buscarProveedorPorNombre(String nombre) {
         EntityManager em = createEntityManager();
         em.getTransaction().begin();
-        String query = "SELECT * FROM Proveedores AS p WHERE p.nombre  LIKE '%:nombre%'";
+        String query = "SELECT p FROM Proveedor p WHERE p.nombre  LIKE :nombre";
         TypedQuery<Proveedor> q = em.createQuery(query, Proveedor.class);
         q.setParameter("nombre", nombre);
         List<Proveedor> listaP = (List<Proveedor>) q.getResultList();

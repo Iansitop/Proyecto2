@@ -98,7 +98,7 @@ public class ClientesRepository extends BaseRepository<Cliente> {
     public ArrayList<Cliente> buscarClientePorId(int id) {
         EntityManager em = createEntityManager();
         em.getTransaction().begin();
-        String query = "SELECT * FROM Clientes AS c WHERE c.id  LIKE '%:id%'";
+        String query = "SELECT c FROM Cliente c WHERE c.id  LIKE '%:id%'";
         TypedQuery<Cliente> q = em.createQuery(query, Cliente.class);
         q.setParameter("id", id);
         List<Cliente> listaP = (List<Cliente>) q.getResultList();
@@ -110,7 +110,7 @@ public class ClientesRepository extends BaseRepository<Cliente> {
     public ArrayList<Cliente> buscarClientePorNombre(String nombre) {
         EntityManager em = createEntityManager();
         em.getTransaction().begin();
-        String query = "SELECT * FROM Clientes AS c WHERE c.nombre  LIKE '%:nombre%'";
+        String query = "SELECT c FROM Cliente c WHERE c.nombre  LIKE :nombre";
         TypedQuery<Cliente> q = em.createQuery(query, Cliente.class);
         q.setParameter("nombre", nombre);
         List<Cliente> listaP = (List<Cliente>) q.getResultList();

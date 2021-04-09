@@ -92,7 +92,7 @@ public class ProductoRepository extends BaseRepository<Producto> {
     public ArrayList<Producto> buscarProductoPorId(int id) {
         EntityManager em = createEntityManager();
         em.getTransaction().begin();
-        String query = "SELECT p FROM Producto p WHERE p.id  LIKE '%:id%'";
+        String query = "SELECT p FROM Producto p WHERE p.id  LIKE :id";
         TypedQuery<Producto> q = em.createQuery(query, Producto.class);
         q.setParameter("id", id);
         List<Producto> listaP = (List<Producto>) q.getResultList();

@@ -109,9 +109,10 @@ public class VentasRepository extends BaseRepository<Venta> {
         EntityManager em = createEntityManager();
         em.getTransaction().begin();
         int id = cliente.getId();
-        String query = "SELECT * FROM ventas AS v WHERE v.idCliente = :id " + " AND v.fecha  BETWEEN : fecha1  AND : fecha2 ";
+//        SELECT p FROM Productos p JOIN p.categoria c WHERE c.idcategoria = :idcategoria
+        String query = "SELECT v FROM Venta v JOIN v.cliente c WHERE c.id = :idCliente " + " AND v.fecha  BETWEEN : fecha1  AND : fecha2 ";
         TypedQuery<Venta> q = em.createQuery(query, Venta.class);
-        q.setParameter("id", id);
+        q.setParameter("idCliente", id);
         q.setParameter("fecha1", fecha1, TemporalType.DATE);
         q.setParameter("fecha2", fecha2, TemporalType.DATE);
         List<Venta> list = (List<Venta>) q.getResultList();
