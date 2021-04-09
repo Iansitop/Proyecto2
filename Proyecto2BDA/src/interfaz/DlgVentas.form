@@ -63,12 +63,12 @@
                               <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                               <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
-                              <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="comboBoxClientes" alignment="0" max="32767" attributes="0"/>
+                              <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="comboBoxClientes" min="-2" pref="190" max="-2" attributes="0"/>
                                   <Group type="102" attributes="0">
                                       <Component id="fecha1" min="-2" pref="89" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="fecha2" min="-2" pref="89" max="-2" attributes="0"/>
+                                      <Component id="fecha2" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -93,12 +93,12 @@
                   <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="fecha2" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="fecha1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="fecha2" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="botonBuscar" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="43" max="32767" attributes="0"/>
                   <Component id="jScrollPane1" min="-2" pref="225" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
               </Group>
@@ -145,13 +145,6 @@
             <Property name="text" type="java.lang.String" value="Fechas(AAAA-MM-DD)"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JFormattedTextField" name="fecha2">
-          <Properties>
-            <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
-              <Format format="yyyy/MM/dd" subtype="-1" type="1"/>
-            </Property>
-          </Properties>
-        </Component>
         <Component class="javax.swing.JButton" name="botonBuscar">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -177,12 +170,9 @@
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;Cliente&gt;"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JFormattedTextField" name="fecha1">
-          <Properties>
-            <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
-              <Format format="yyyy/MM/dd" subtype="-1" type="1"/>
-            </Property>
-          </Properties>
+        <Component class="javax.swing.JTextField" name="fecha1">
+        </Component>
+        <Component class="javax.swing.JTextField" name="fecha2">
         </Component>
       </SubComponents>
     </Container>

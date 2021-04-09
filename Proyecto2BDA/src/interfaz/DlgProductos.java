@@ -672,7 +672,7 @@ public class DlgProductos extends javax.swing.JFrame {
     }//GEN-LAST:event_campoTextoBuscarKeyTyped
 
     private void campoTextoBuscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campoTextoBuscarKeyReleased
-                if(!campoTextoBuscar.getText().isEmpty()){
+        if(!campoTextoBuscar.getText().isEmpty()){
             if(campoTextoBuscar.getText().matches("[A-Za-z]+")){
                 actualizarTabla(c.getProductoRepository().buscarProductoPorNombre(campoTextoBuscar.getText()));
             }else if(campoTextoBuscar.getText().matches("[0-9]+")){

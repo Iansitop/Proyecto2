@@ -7,6 +7,8 @@ package repositorios;
 
 import entidades.Producto;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashSet;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
@@ -68,8 +70,7 @@ public class ProductoRepository extends BaseRepository<Producto> {
         em.getTransaction().begin();
         Producto prod = em.find(Producto.class, id);
         if (prod == null) {
-            System.out.println("No se ha encontrado la categoría");
-
+            System.out.println("No se ha encontrado la producto");
         }
         em.getTransaction().commit();
         return prod;
@@ -91,7 +92,7 @@ public class ProductoRepository extends BaseRepository<Producto> {
     public ArrayList<Producto> buscarProductoPorId(int id) {
         EntityManager em = createEntityManager();
         em.getTransaction().begin();
-        String query = "SELECT * FROM Productos AS p WHERE p.id  LIKE '%:id%'";
+        String query = "SELECT p FROM Producto p WHERE p.id  LIKE '%:id%'";
         TypedQuery<Producto> q = em.createQuery(query, Producto.class);
         q.setParameter("id", id);
         List<Producto> listaP = (List<Producto>) q.getResultList();
@@ -103,12 +104,17 @@ public class ProductoRepository extends BaseRepository<Producto> {
     public ArrayList<Producto> buscarProductoPorNombre(String nombre) {
         EntityManager em = createEntityManager();
         em.getTransaction().begin();
-        String query = "SELECT * FROM Productos AS p WHERE p.nombre  LIKE '%:nombre%'";
+        String query = "SELECT p FROM Producto p WHERE p.nombre  LIKE :nombre";
         TypedQuery<Producto> q = em.createQuery(query, Producto.class);
         q.setParameter("nombre", nombre);
         List<Producto> listaP = (List<Producto>) q.getResultList();
         em.getTransaction().commit();
-        return (ArrayList<Producto>) listaP;
+        Collection<Producto> col=new HashSet();
+        for (int i = 0; i < listaP.size(); i++) {
+            col.add(listaP.get(i));
+        }
+        ArrayList<Producto> ar=new ArrayList(col);
+        return ar;
 
     }
 }

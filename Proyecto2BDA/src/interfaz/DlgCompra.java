@@ -15,11 +15,16 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import javax.persistence.TypedQuery;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.text.BadLocationException;
 import org.decimal4j.util.DoubleRounder;
 import repositorios.Control;
+import java.util.List;
 
 /**
  *
@@ -54,7 +59,7 @@ public class DlgCompra extends javax.swing.JFrame {
         campoTextoDescuento = new javax.swing.JTextField();
         campoTextoSubTotal = new javax.swing.JTextField();
         campoTextoTotal = new javax.swing.JTextField();
-        botonRegistrar = new javax.swing.JButton();
+        botonPagar = new javax.swing.JButton();
         boton_limpiar = new javax.swing.JButton();
         comboBoxClientes = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -118,12 +123,12 @@ public class DlgCompra extends javax.swing.JFrame {
             }
         });
 
-        botonRegistrar.setBackground(new java.awt.Color(102, 102, 255));
-        botonRegistrar.setForeground(new java.awt.Color(255, 255, 255));
-        botonRegistrar.setText("Pagar");
-        botonRegistrar.addActionListener(new java.awt.event.ActionListener() {
+        botonPagar.setBackground(new java.awt.Color(102, 102, 255));
+        botonPagar.setForeground(new java.awt.Color(255, 255, 255));
+        botonPagar.setText("Pagar");
+        botonPagar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonRegistrarActionPerformed(evt);
+                botonPagarActionPerformed(evt);
             }
         });
 
@@ -158,7 +163,7 @@ public class DlgCompra extends javax.swing.JFrame {
                             .addComponent(campoTextoSubTotal)))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(59, 59, 59)
-                        .addComponent(botonRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(botonPagar, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(jPanel3Layout.createSequentialGroup()
@@ -178,7 +183,7 @@ public class DlgCompra extends javax.swing.JFrame {
                 .addGap(28, 28, 28)
                 .addComponent(campoTextoTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
-                .addComponent(botonRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(botonPagar, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(48, 48, 48)
@@ -367,6 +372,11 @@ public class DlgCompra extends javax.swing.JFrame {
             categorias[i+1]=c.getCategoriaRepository().buscarTodos().get(i);
         }
         comboBoxCategorias.setModel(new javax.swing.DefaultComboBoxModel<Categoria>(categorias));
+        comboBoxCategorias.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                comboBoxCategoriasItemStateChanged(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -393,7 +403,7 @@ public class DlgCompra extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(campoTextoSubTotalVentanilla, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(241, 241, 241)
+                        .addGap(243, 243, 243)
                         .addComponent(boton_eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -422,9 +432,9 @@ public class DlgCompra extends javax.swing.JFrame {
                         .addComponent(botonAgregarProducto)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(18, 18, 18)
                         .addComponent(boton_eliminar)
-                        .addGap(34, 34, 34))))
+                        .addGap(22, 22, 22))))
         );
 
         pack();
@@ -475,37 +485,46 @@ public class DlgCompra extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_campoTextoTotalKeyPressed
 
-    private void botonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegistrarActionPerformed
+    private void botonPagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonPagarActionPerformed
         if (campoTextoDescuento.getText().equals("Descuento")
             || campoTextoSubTotal.getText().equals("SubTotal") || campoTextoTotal.getText().equals("Total")) {
             JOptionPane.showMessageDialog(rootPane, "No deje campos vacíos");
         }else{
             Venta venta = new Venta();
-            String desc = campoTextoSubTotal.getText();
+            String desc = campoTextoDescuento.getText();
             String total = campoTextoTotal.getText();
             
             venta.setDescuento(Integer.parseInt(desc));
-            venta.setMontoFinal(Integer.parseInt(total));
+            venta.setMontoFinal(Float.parseFloat(total));
             Date date = new java.sql.Date(Calendar.getInstance().getTime().getTime());
             venta.setFecha(date);
             venta.setCliente(c.getClientesRepository().buscarPorId(((Cliente)comboBoxClientes.getSelectedItem()).getId()));
-            
             c.getVentasRepository().guardar(venta);
+            for (int i = 0; i < carrito.size(); i++) {
+                VentaProducto vr=new VentaProducto();
+                Producto pr=carrito.get(i);
+                vr.setCantidad(pr.getStock());
+                vr.setMontoTotal(pr.getPrecioactual());
+                vr.setPrecio(vr.getMontoTotal()/pr.getStock());
+                vr.setVenta(c.getVentasRepository().buscarPorId(c.getVentasRepository().buscarTodos().size()-1));
+                vr.setProducto(c.getProductoRepository().buscarProductoPorNombre(pr.getNombre()).get(0));
+                c.getVentaProductoRepository().guardar(vr);
+            }
             boton_limpiarActionPerformed(evt);
         }
         actualizarTabla(carrito);
-    }//GEN-LAST:event_botonRegistrarActionPerformed
+    }//GEN-LAST:event_botonPagarActionPerformed
 
     private void boton_limpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_limpiarActionPerformed
-        
         campoTextoDescuento.setText("Descuento");
         campoTextoSubTotal.setText("SubTotal");
         campoTextoTotal.setText("Total");
     }//GEN-LAST:event_boton_limpiarActionPerformed
 
     private void tablaListaCompraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaListaCompraMouseClicked
-        botonRegistrar.setEnabled(false);
+        botonPagar.setEnabled(false);
         boton_limpiar.setEnabled(false);
+        boton_eliminar.setVisible(true);
     }//GEN-LAST:event_tablaListaCompraMouseClicked
 
     private void botonMenuClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonMenuClientesActionPerformed
@@ -538,15 +557,18 @@ public class DlgCompra extends javax.swing.JFrame {
     }//GEN-LAST:event_botonMenuCompraActionPerformed
 
     private void boton_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_eliminarActionPerformed
-
-        //int idVentaProducto = Integer.valueOf(id_cliente.getText());
-        //Aquí va un Inner join que busque un nombre y regrese un ID
-        //c.getVentaProductoRepository().eliminar(idVentaProducto);
-        boton_limpiarActionPerformed(evt);
-
+        int borrar=tablaListaCompra.getSelectedRow();
+        carrito.remove(borrar);
         actualizarTabla(carrito);
-
         boton_eliminar.setVisible(false);
+        double subtotal = 0;
+        double descuento = Float.parseFloat(campoTextoDescuento.getText()) / 100;
+                    for (int i = 0; i < carrito.size(); i++) {
+                        subtotal += carrito.get(i).getPrecioactual();
+                    }
+                    campoTextoSubTotal.setText(String.valueOf(subtotal));
+                    subtotal = subtotal - DoubleRounder.round((subtotal * descuento), 2);
+                    campoTextoTotal.setText(String.valueOf(subtotal));
     }//GEN-LAST:event_boton_eliminarActionPerformed
 
     private void botonAgregarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAgregarProductoActionPerformed
@@ -623,6 +645,30 @@ public class DlgCompra extends javax.swing.JFrame {
         actualizarPantalla();
     }//GEN-LAST:event_comboBoxProductosItemStateChanged
 
+    private void comboBoxCategoriasItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_comboBoxCategoriasItemStateChanged
+        if(comboBoxCategorias.getItemAt(comboBoxCategorias.getSelectedIndex()).getNombre().equalsIgnoreCase("Todos")){
+            Producto[] productos=new Producto[c.getProductoRepository().buscarTodos().size()];
+            for (int i = 0; i < c.getProductoRepository().buscarTodos().size(); i++) {
+            productos[i]=c.getProductoRepository().buscarTodos().get(i);
+            }
+            comboBoxProductos.setModel(new javax.swing.DefaultComboBoxModel<>(productos));
+        }else{
+            EntityManagerFactory emf = Persistence.createEntityManagerFactory("Proyecto2BDAPU");
+            EntityManager em =emf.createEntityManager();
+            em.getTransaction().begin();
+            String index=comboBoxCategorias.getSelectedIndex()+"";
+            String jpqlQuery="SELECT p FROM Producto p JOIN p.categoria c WHERE c.id = :idcategoria";
+            TypedQuery<Producto> query = em.createQuery(jpqlQuery,Producto.class);
+            query.setParameter("idcategoria", Integer.parseInt(index));
+            List<Producto> productos=query.getResultList();
+            Producto[] producto=new Producto[productos.size()];
+            for (int i = 0; i < productos.size(); i++) {
+            producto[i]=productos.get(i);
+            }
+            comboBoxProductos.setModel(new javax.swing.DefaultComboBoxModel<>(producto));
+        }
+    }//GEN-LAST:event_comboBoxCategoriasItemStateChanged
+
     public void actualizarTabla(ArrayList<Producto>listaTabla) {
         DefaultTableModel model = new DefaultTableModel();
         model.setColumnIdentifiers(new Object[]{"Cantidad", "Producto", "Precio"});
@@ -638,7 +684,7 @@ public class DlgCompra extends javax.swing.JFrame {
     }
     
     public void actualizarPantalla(){
-            Producto posicion=c.getProductoRepository().buscarPorId(comboBoxProductos.getItemAt(comboBoxProductos.getSelectedIndex()).getId());
+        Producto posicion=c.getProductoRepository().buscarPorId(comboBoxProductos.getItemAt(comboBoxProductos.getSelectedIndex()).getId());
         int cantidad=Integer.parseInt(campoTextoCantidadVentanilla.getText());
         float precio=posicion.getPrecioactual();
         double resultado=cantidad*precio;
@@ -655,7 +701,7 @@ public class DlgCompra extends javax.swing.JFrame {
     private javax.swing.JButton botonMenuProductos;
     private javax.swing.JButton botonMenuProveedores;
     private javax.swing.JButton botonMenuVentas;
-    private javax.swing.JButton botonRegistrar;
+    private javax.swing.JButton botonPagar;
     private javax.swing.JButton boton_eliminar;
     private javax.swing.JButton boton_limpiar;
     private javax.swing.JTextField campoTextoCantidadVentanilla;
