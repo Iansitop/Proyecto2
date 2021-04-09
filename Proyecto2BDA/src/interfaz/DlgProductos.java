@@ -707,13 +707,11 @@ public class DlgProductos extends javax.swing.JFrame {
     }//GEN-LAST:event_campoTextoBuscarKeyReleased
 
     private void botonRedireccionaCategoriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRedireccionaCategoriasActionPerformed
-        new DlgCategorias().setVisible(true);
-        dispose();
+        new DlgMiniCategorias().setVisible(true);
     }//GEN-LAST:event_botonRedireccionaCategoriasActionPerformed
 
     private void botonRedireccionaProveedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRedireccionaProveedoresActionPerformed
-        new DlgProveedor().setVisible(true);
-        dispose();
+        new DlgMiniProveedor().setVisible(true);
     }//GEN-LAST:event_botonRedireccionaProveedoresActionPerformed
 
 
