@@ -60,6 +60,8 @@ public class DlgProductos extends javax.swing.JFrame {
         boton_limpiar = new javax.swing.JButton();
         comboBoxCategoria = new javax.swing.JComboBox<>();
         comboBoxProveedor = new javax.swing.JComboBox<>();
+        botonRedireccionaCategorias = new javax.swing.JButton();
+        botonRedireccionaProveedores = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabla_productos = new javax.swing.JTable();
         boton_eliminar = new javax.swing.JButton();
@@ -76,7 +78,7 @@ public class DlgProductos extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel3.setBackground(new java.awt.Color(153, 153, 255));
+        jPanel3.setBackground(new java.awt.Color(150, 198, 112));
 
         id_producto.setEditable(false);
         id_producto.setText("ID");
@@ -131,7 +133,7 @@ public class DlgProductos extends javax.swing.JFrame {
             }
         });
 
-        boton_agregar.setBackground(new java.awt.Color(102, 102, 255));
+        boton_agregar.setBackground(new java.awt.Color(123, 183, 70));
         boton_agregar.setForeground(new java.awt.Color(255, 255, 255));
         boton_agregar.setText("Agregar");
         boton_agregar.addActionListener(new java.awt.event.ActionListener() {
@@ -140,7 +142,7 @@ public class DlgProductos extends javax.swing.JFrame {
             }
         });
 
-        boton_limpiar.setBackground(new java.awt.Color(102, 102, 255));
+        boton_limpiar.setBackground(new java.awt.Color(123, 183, 70));
         boton_limpiar.setForeground(new java.awt.Color(255, 255, 255));
         boton_limpiar.setText("Cancelar");
         boton_limpiar.addActionListener(new java.awt.event.ActionListener() {
@@ -161,6 +163,20 @@ public class DlgProductos extends javax.swing.JFrame {
         }
         comboBoxProveedor.setModel(new javax.swing.DefaultComboBoxModel<Proveedor>(proveedores));
 
+        botonRedireccionaCategorias.setText("+");
+        botonRedireccionaCategorias.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonRedireccionaCategoriasActionPerformed(evt);
+            }
+        });
+
+        botonRedireccionaProveedores.setText("+");
+        botonRedireccionaProveedores.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonRedireccionaProveedoresActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -169,25 +185,29 @@ public class DlgProductos extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(53, 53, 53)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(boton_limpiar, javax.swing.GroupLayout.DEFAULT_SIZE, 83, Short.MAX_VALUE)
+                            .addComponent(boton_agregar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(0, 53, Short.MAX_VALUE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(9, 9, 9)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(id_producto)
                             .addComponent(precio)
                             .addComponent(nombre_producto)
-                            .addComponent(stock)))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(53, 53, 53)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(boton_limpiar, javax.swing.GroupLayout.DEFAULT_SIZE, 83, Short.MAX_VALUE)
-                            .addComponent(boton_agregar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                            .addComponent(stock)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(comboBoxProveedor, 0, 133, Short.MAX_VALUE)
+                                    .addComponent(comboBoxCategoria, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addComponent(botonRedireccionaCategorias)
+                                        .addGap(0, 0, Short.MAX_VALUE))
+                                    .addComponent(botonRedireccionaProveedores, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addGap(0, 36, Short.MAX_VALUE)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(comboBoxProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(comboBoxCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -200,10 +220,14 @@ public class DlgProductos extends javax.swing.JFrame {
                 .addComponent(precio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(stock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(comboBoxCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
-                .addComponent(comboBoxProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(comboBoxCategoria)
+                    .addComponent(botonRedireccionaCategorias, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(comboBoxProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botonRedireccionaProveedores, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -236,7 +260,7 @@ public class DlgProductos extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tabla_productos);
 
-        boton_eliminar.setBackground(new java.awt.Color(102, 102, 255));
+        boton_eliminar.setBackground(new java.awt.Color(123, 183, 70));
         boton_eliminar.setForeground(new java.awt.Color(255, 255, 255));
         boton_eliminar.setText("Eliminar");
         boton_eliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -245,13 +269,13 @@ public class DlgProductos extends javax.swing.JFrame {
             }
         });
 
-        jPanel2.setBackground(new java.awt.Color(153, 153, 255));
+        jPanel2.setBackground(new java.awt.Color(150, 198, 112));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Menú productos");
 
-        botonMenuClientes.setBackground(new java.awt.Color(102, 102, 255));
+        botonMenuClientes.setBackground(new java.awt.Color(123, 183, 70));
         botonMenuClientes.setForeground(new java.awt.Color(255, 255, 255));
         botonMenuClientes.setText("Clientes");
         botonMenuClientes.addActionListener(new java.awt.event.ActionListener() {
@@ -260,7 +284,7 @@ public class DlgProductos extends javax.swing.JFrame {
             }
         });
 
-        botonMenuProductos.setBackground(new java.awt.Color(102, 102, 255));
+        botonMenuProductos.setBackground(new java.awt.Color(123, 183, 70));
         botonMenuProductos.setForeground(new java.awt.Color(255, 255, 255));
         botonMenuProductos.setText("Productos");
         botonMenuProductos.addActionListener(new java.awt.event.ActionListener() {
@@ -269,7 +293,7 @@ public class DlgProductos extends javax.swing.JFrame {
             }
         });
 
-        botonMenuVentas.setBackground(new java.awt.Color(102, 102, 255));
+        botonMenuVentas.setBackground(new java.awt.Color(123, 183, 70));
         botonMenuVentas.setForeground(new java.awt.Color(255, 255, 255));
         botonMenuVentas.setText("Ventas");
         botonMenuVentas.addActionListener(new java.awt.event.ActionListener() {
@@ -278,7 +302,7 @@ public class DlgProductos extends javax.swing.JFrame {
             }
         });
 
-        botonMenuCategorias.setBackground(new java.awt.Color(102, 102, 255));
+        botonMenuCategorias.setBackground(new java.awt.Color(123, 183, 70));
         botonMenuCategorias.setForeground(new java.awt.Color(255, 255, 255));
         botonMenuCategorias.setText("Categorías");
         botonMenuCategorias.addActionListener(new java.awt.event.ActionListener() {
@@ -287,7 +311,7 @@ public class DlgProductos extends javax.swing.JFrame {
             }
         });
 
-        botonMenuProveedores.setBackground(new java.awt.Color(102, 102, 255));
+        botonMenuProveedores.setBackground(new java.awt.Color(123, 183, 70));
         botonMenuProveedores.setForeground(new java.awt.Color(255, 255, 255));
         botonMenuProveedores.setText("Proveedores");
         botonMenuProveedores.addActionListener(new java.awt.event.ActionListener() {
@@ -296,7 +320,7 @@ public class DlgProductos extends javax.swing.JFrame {
             }
         });
 
-        botonMenuCompra.setBackground(new java.awt.Color(102, 102, 255));
+        botonMenuCompra.setBackground(new java.awt.Color(123, 183, 70));
         botonMenuCompra.setForeground(new java.awt.Color(255, 255, 255));
         botonMenuCompra.setText("Compra");
         botonMenuCompra.addActionListener(new java.awt.event.ActionListener() {
@@ -344,7 +368,7 @@ public class DlgProductos extends javax.swing.JFrame {
                     .addComponent(botonMenuVentas, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
-        boton_actualizar.setBackground(new java.awt.Color(102, 102, 255));
+        boton_actualizar.setBackground(new java.awt.Color(123, 183, 70));
         boton_actualizar.setForeground(new java.awt.Color(255, 255, 255));
         boton_actualizar.setText("Actualizar");
         boton_actualizar.addActionListener(new java.awt.event.ActionListener() {
@@ -373,7 +397,7 @@ public class DlgProductos extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(94, 94, 94)
+                .addGap(136, 136, 136)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(50, 50, 50)
@@ -682,6 +706,16 @@ public class DlgProductos extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_campoTextoBuscarKeyReleased
 
+    private void botonRedireccionaCategoriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRedireccionaCategoriasActionPerformed
+        new DlgCategorias().setVisible(true);
+        dispose();
+    }//GEN-LAST:event_botonRedireccionaCategoriasActionPerformed
+
+    private void botonRedireccionaProveedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRedireccionaProveedoresActionPerformed
+        new DlgProveedor().setVisible(true);
+        dispose();
+    }//GEN-LAST:event_botonRedireccionaProveedoresActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonMenuCategorias;
@@ -690,6 +724,8 @@ public class DlgProductos extends javax.swing.JFrame {
     private javax.swing.JButton botonMenuProductos;
     private javax.swing.JButton botonMenuProveedores;
     private javax.swing.JButton botonMenuVentas;
+    private javax.swing.JButton botonRedireccionaCategorias;
+    private javax.swing.JButton botonRedireccionaProveedores;
     private javax.swing.JButton boton_actualizar;
     private javax.swing.JButton boton_agregar;
     private javax.swing.JButton boton_eliminar;

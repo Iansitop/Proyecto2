@@ -73,13 +73,13 @@ public class DlgClientes extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setPreferredSize(new java.awt.Dimension(843, 500));
 
-        jPanel2.setBackground(new java.awt.Color(153, 153, 255));
+        jPanel2.setBackground(new java.awt.Color(59, 166, 222));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Menú clientes");
 
-        botonMenuClientes.setBackground(new java.awt.Color(102, 102, 255));
+        botonMenuClientes.setBackground(new java.awt.Color(13, 123, 186));
         botonMenuClientes.setForeground(new java.awt.Color(255, 255, 255));
         botonMenuClientes.setText("Clientes");
         botonMenuClientes.addActionListener(new java.awt.event.ActionListener() {
@@ -88,7 +88,7 @@ public class DlgClientes extends javax.swing.JFrame {
             }
         });
 
-        botonMenuProductos.setBackground(new java.awt.Color(102, 102, 255));
+        botonMenuProductos.setBackground(new java.awt.Color(13, 123, 186));
         botonMenuProductos.setForeground(new java.awt.Color(255, 255, 255));
         botonMenuProductos.setText("Productos");
         botonMenuProductos.addActionListener(new java.awt.event.ActionListener() {
@@ -97,7 +97,7 @@ public class DlgClientes extends javax.swing.JFrame {
             }
         });
 
-        botonMenuVentas.setBackground(new java.awt.Color(102, 102, 255));
+        botonMenuVentas.setBackground(new java.awt.Color(13, 123, 186));
         botonMenuVentas.setForeground(new java.awt.Color(255, 255, 255));
         botonMenuVentas.setText("Ventas");
         botonMenuVentas.addActionListener(new java.awt.event.ActionListener() {
@@ -106,7 +106,7 @@ public class DlgClientes extends javax.swing.JFrame {
             }
         });
 
-        botonMenuCategorias.setBackground(new java.awt.Color(102, 102, 255));
+        botonMenuCategorias.setBackground(new java.awt.Color(13, 123, 186));
         botonMenuCategorias.setForeground(new java.awt.Color(255, 255, 255));
         botonMenuCategorias.setText("Categorías");
         botonMenuCategorias.addActionListener(new java.awt.event.ActionListener() {
@@ -115,7 +115,7 @@ public class DlgClientes extends javax.swing.JFrame {
             }
         });
 
-        botonMenuProveedores.setBackground(new java.awt.Color(102, 102, 255));
+        botonMenuProveedores.setBackground(new java.awt.Color(13, 123, 186));
         botonMenuProveedores.setForeground(new java.awt.Color(255, 255, 255));
         botonMenuProveedores.setText("Proveedores");
         botonMenuProveedores.addActionListener(new java.awt.event.ActionListener() {
@@ -124,7 +124,7 @@ public class DlgClientes extends javax.swing.JFrame {
             }
         });
 
-        botonMenuCompra.setBackground(new java.awt.Color(102, 102, 255));
+        botonMenuCompra.setBackground(new java.awt.Color(13, 123, 186));
         botonMenuCompra.setForeground(new java.awt.Color(255, 255, 255));
         botonMenuCompra.setText("Compra");
         botonMenuCompra.addActionListener(new java.awt.event.ActionListener() {
@@ -138,7 +138,7 @@ public class DlgClientes extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(17, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel1)
@@ -172,7 +172,7 @@ public class DlgClientes extends javax.swing.JFrame {
                     .addComponent(botonMenuVentas, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
-        jPanel5.setBackground(new java.awt.Color(153, 153, 255));
+        jPanel5.setBackground(new java.awt.Color(59, 166, 222));
 
         id_cliente.setEditable(false);
         id_cliente.setText("ID");
@@ -242,7 +242,7 @@ public class DlgClientes extends javax.swing.JFrame {
             }
         });
 
-        boton_agregar.setBackground(new java.awt.Color(102, 102, 255));
+        boton_agregar.setBackground(new java.awt.Color(13, 123, 186));
         boton_agregar.setForeground(new java.awt.Color(255, 255, 255));
         boton_agregar.setText("Agregar");
         boton_agregar.addActionListener(new java.awt.event.ActionListener() {
@@ -251,7 +251,7 @@ public class DlgClientes extends javax.swing.JFrame {
             }
         });
 
-        boton_limpiar.setBackground(new java.awt.Color(102, 102, 255));
+        boton_limpiar.setBackground(new java.awt.Color(13, 123, 186));
         boton_limpiar.setForeground(new java.awt.Color(255, 255, 255));
         boton_limpiar.setText("Cancelar");
         boton_limpiar.addActionListener(new java.awt.event.ActionListener() {
@@ -343,7 +343,7 @@ public class DlgClientes extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tabla_clientes);
 
-        boton_eliminar.setBackground(new java.awt.Color(102, 102, 255));
+        boton_eliminar.setBackground(new java.awt.Color(13, 123, 186));
         boton_eliminar.setForeground(new java.awt.Color(255, 255, 255));
         boton_eliminar.setText("Eliminar");
         boton_eliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -352,7 +352,7 @@ public class DlgClientes extends javax.swing.JFrame {
             }
         });
 
-        boton_actualizar.setBackground(new java.awt.Color(102, 102, 255));
+        boton_actualizar.setBackground(new java.awt.Color(13, 123, 186));
         boton_actualizar.setForeground(new java.awt.Color(255, 255, 255));
         boton_actualizar.setText("Actualizar");
         boton_actualizar.addActionListener(new java.awt.event.ActionListener() {

@@ -101,7 +101,7 @@ public class DlgVentas extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel3.setBackground(new java.awt.Color(153, 153, 255));
+        jPanel3.setBackground(new java.awt.Color(212, 91, 100));
 
         tabla_ventas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -130,7 +130,7 @@ public class DlgVentas extends javax.swing.JFrame {
 
         jLabel3.setText("Fechas(AAAA-MM-DD)");
 
-        botonBuscar.setBackground(new java.awt.Color(102, 102, 255));
+        botonBuscar.setBackground(new java.awt.Color(207, 42, 58));
         botonBuscar.setForeground(new java.awt.Color(255, 255, 255));
         botonBuscar.setText("Buscar");
         botonBuscar.addActionListener(new java.awt.event.ActionListener() {
@@ -189,13 +189,13 @@ public class DlgVentas extends javax.swing.JFrame {
                 .addGap(30, 30, 30))
         );
 
-        jPanel2.setBackground(new java.awt.Color(153, 153, 255));
+        jPanel2.setBackground(new java.awt.Color(212, 91, 100));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Menú ventas");
 
-        botonMenuClientes.setBackground(new java.awt.Color(102, 102, 255));
+        botonMenuClientes.setBackground(new java.awt.Color(207, 42, 58));
         botonMenuClientes.setForeground(new java.awt.Color(255, 255, 255));
         botonMenuClientes.setText("Clientes");
         botonMenuClientes.addActionListener(new java.awt.event.ActionListener() {
@@ -204,7 +204,7 @@ public class DlgVentas extends javax.swing.JFrame {
             }
         });
 
-        botonMenuProductos.setBackground(new java.awt.Color(102, 102, 255));
+        botonMenuProductos.setBackground(new java.awt.Color(207, 42, 58));
         botonMenuProductos.setForeground(new java.awt.Color(255, 255, 255));
         botonMenuProductos.setText("Productos");
         botonMenuProductos.addActionListener(new java.awt.event.ActionListener() {
@@ -213,7 +213,7 @@ public class DlgVentas extends javax.swing.JFrame {
             }
         });
 
-        botonMenuVentas.setBackground(new java.awt.Color(102, 102, 255));
+        botonMenuVentas.setBackground(new java.awt.Color(207, 42, 58));
         botonMenuVentas.setForeground(new java.awt.Color(255, 255, 255));
         botonMenuVentas.setText("Ventas");
         botonMenuVentas.addActionListener(new java.awt.event.ActionListener() {
@@ -222,7 +222,7 @@ public class DlgVentas extends javax.swing.JFrame {
             }
         });
 
-        botonMenuCategorias.setBackground(new java.awt.Color(102, 102, 255));
+        botonMenuCategorias.setBackground(new java.awt.Color(207, 42, 58));
         botonMenuCategorias.setForeground(new java.awt.Color(255, 255, 255));
         botonMenuCategorias.setText("Categorías");
         botonMenuCategorias.addActionListener(new java.awt.event.ActionListener() {
@@ -231,7 +231,7 @@ public class DlgVentas extends javax.swing.JFrame {
             }
         });
 
-        botonMenuProveedores.setBackground(new java.awt.Color(102, 102, 255));
+        botonMenuProveedores.setBackground(new java.awt.Color(207, 42, 58));
         botonMenuProveedores.setForeground(new java.awt.Color(255, 255, 255));
         botonMenuProveedores.setText("Proveedores");
         botonMenuProveedores.addActionListener(new java.awt.event.ActionListener() {
@@ -240,7 +240,7 @@ public class DlgVentas extends javax.swing.JFrame {
             }
         });
 
-        botonMenuCompra.setBackground(new java.awt.Color(102, 102, 255));
+        botonMenuCompra.setBackground(new java.awt.Color(207, 42, 58));
         botonMenuCompra.setForeground(new java.awt.Color(255, 255, 255));
         botonMenuCompra.setText("Compra");
         botonMenuCompra.addActionListener(new java.awt.event.ActionListener() {
@@ -287,7 +287,7 @@ public class DlgVentas extends javax.swing.JFrame {
                     .addComponent(botonMenuVentas, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
-        jPanel1.setBackground(new java.awt.Color(153, 153, 255));
+        jPanel1.setBackground(new java.awt.Color(212, 91, 100));
 
         tabla_listaproductos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

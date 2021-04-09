@@ -83,7 +83,7 @@ public class DlgCompra extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel3.setBackground(new java.awt.Color(153, 153, 255));
+        jPanel3.setBackground(new java.awt.Color(212, 91, 100));
 
         campoTextoDescuento.setText("Descuento");
         campoTextoDescuento.addActionListener(new java.awt.event.ActionListener() {
@@ -123,7 +123,7 @@ public class DlgCompra extends javax.swing.JFrame {
             }
         });
 
-        botonPagar.setBackground(new java.awt.Color(102, 102, 255));
+        botonPagar.setBackground(new java.awt.Color(207, 42, 58));
         botonPagar.setForeground(new java.awt.Color(255, 255, 255));
         botonPagar.setText("Pagar");
         botonPagar.addActionListener(new java.awt.event.ActionListener() {
@@ -132,7 +132,7 @@ public class DlgCompra extends javax.swing.JFrame {
             }
         });
 
-        boton_limpiar.setBackground(new java.awt.Color(102, 102, 255));
+        boton_limpiar.setBackground(new java.awt.Color(207, 42, 58));
         boton_limpiar.setForeground(new java.awt.Color(255, 255, 255));
         boton_limpiar.setText("Cancelar");
         boton_limpiar.addActionListener(new java.awt.event.ActionListener() {
@@ -214,13 +214,13 @@ public class DlgCompra extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tablaListaCompra);
 
-        jPanel2.setBackground(new java.awt.Color(153, 153, 255));
+        jPanel2.setBackground(new java.awt.Color(212, 91, 100));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Menú compras");
 
-        botonMenuClientes.setBackground(new java.awt.Color(102, 102, 255));
+        botonMenuClientes.setBackground(new java.awt.Color(207, 42, 58));
         botonMenuClientes.setForeground(new java.awt.Color(255, 255, 255));
         botonMenuClientes.setText("Clientes");
         botonMenuClientes.addActionListener(new java.awt.event.ActionListener() {
@@ -229,7 +229,7 @@ public class DlgCompra extends javax.swing.JFrame {
             }
         });
 
-        botonMenuProductos.setBackground(new java.awt.Color(102, 102, 255));
+        botonMenuProductos.setBackground(new java.awt.Color(207, 42, 58));
         botonMenuProductos.setForeground(new java.awt.Color(255, 255, 255));
         botonMenuProductos.setText("Productos");
         botonMenuProductos.addActionListener(new java.awt.event.ActionListener() {
@@ -238,7 +238,7 @@ public class DlgCompra extends javax.swing.JFrame {
             }
         });
 
-        botonMenuVentas.setBackground(new java.awt.Color(102, 102, 255));
+        botonMenuVentas.setBackground(new java.awt.Color(207, 42, 58));
         botonMenuVentas.setForeground(new java.awt.Color(255, 255, 255));
         botonMenuVentas.setText("Ventas");
         botonMenuVentas.addActionListener(new java.awt.event.ActionListener() {
@@ -247,7 +247,7 @@ public class DlgCompra extends javax.swing.JFrame {
             }
         });
 
-        botonMenuCategorias.setBackground(new java.awt.Color(102, 102, 255));
+        botonMenuCategorias.setBackground(new java.awt.Color(207, 42, 58));
         botonMenuCategorias.setForeground(new java.awt.Color(255, 255, 255));
         botonMenuCategorias.setText("Categorías");
         botonMenuCategorias.addActionListener(new java.awt.event.ActionListener() {
@@ -256,7 +256,7 @@ public class DlgCompra extends javax.swing.JFrame {
             }
         });
 
-        botonMenuProveedores.setBackground(new java.awt.Color(102, 102, 255));
+        botonMenuProveedores.setBackground(new java.awt.Color(207, 42, 58));
         botonMenuProveedores.setForeground(new java.awt.Color(255, 255, 255));
         botonMenuProveedores.setText("Proveedores");
         botonMenuProveedores.addActionListener(new java.awt.event.ActionListener() {
@@ -265,7 +265,7 @@ public class DlgCompra extends javax.swing.JFrame {
             }
         });
 
-        botonMenuCompra.setBackground(new java.awt.Color(102, 102, 255));
+        botonMenuCompra.setBackground(new java.awt.Color(207, 42, 58));
         botonMenuCompra.setForeground(new java.awt.Color(255, 255, 255));
         botonMenuCompra.setText("Compra");
         botonMenuCompra.setEnabled(false);
@@ -334,7 +334,7 @@ public class DlgCompra extends javax.swing.JFrame {
         campoTextoCantidadVentanilla.setEnabled(false);
         campoTextoCantidadVentanilla.setFocusable(false);
 
-        boton_eliminar.setBackground(new java.awt.Color(102, 102, 255));
+        boton_eliminar.setBackground(new java.awt.Color(207, 42, 58));
         boton_eliminar.setForeground(new java.awt.Color(255, 255, 255));
         boton_eliminar.setText("Eliminar");
         boton_eliminar.addActionListener(new java.awt.event.ActionListener() {

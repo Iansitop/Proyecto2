@@ -82,7 +82,7 @@ public class DlgProveedor extends javax.swing.JFrame {
             }
         });
 
-        jPanel3.setBackground(new java.awt.Color(153, 153, 255));
+        jPanel3.setBackground(new java.awt.Color(150, 198, 112));
 
         campoTextoProveedor.setEditable(false);
         campoTextoProveedor.setText("ID");
@@ -152,7 +152,7 @@ public class DlgProveedor extends javax.swing.JFrame {
             }
         });
 
-        boton_agregar.setBackground(new java.awt.Color(102, 102, 255));
+        boton_agregar.setBackground(new java.awt.Color(123, 183, 70));
         boton_agregar.setForeground(new java.awt.Color(255, 255, 255));
         boton_agregar.setText("Agregar");
         boton_agregar.addActionListener(new java.awt.event.ActionListener() {
@@ -161,7 +161,7 @@ public class DlgProveedor extends javax.swing.JFrame {
             }
         });
 
-        boton_limpiar.setBackground(new java.awt.Color(102, 102, 255));
+        boton_limpiar.setBackground(new java.awt.Color(123, 183, 70));
         boton_limpiar.setForeground(new java.awt.Color(255, 255, 255));
         boton_limpiar.setText("Cancelar");
         boton_limpiar.addActionListener(new java.awt.event.ActionListener() {
@@ -239,7 +239,7 @@ public class DlgProveedor extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tabla_proveedores);
 
-        boton_eliminar.setBackground(new java.awt.Color(102, 102, 255));
+        boton_eliminar.setBackground(new java.awt.Color(123, 183, 70));
         boton_eliminar.setForeground(new java.awt.Color(255, 255, 255));
         boton_eliminar.setText("Eliminar");
         boton_eliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -248,13 +248,13 @@ public class DlgProveedor extends javax.swing.JFrame {
             }
         });
 
-        jPanel2.setBackground(new java.awt.Color(153, 153, 255));
+        jPanel2.setBackground(new java.awt.Color(150, 198, 112));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Menú proveedores");
 
-        botonMenuClientes.setBackground(new java.awt.Color(102, 102, 255));
+        botonMenuClientes.setBackground(new java.awt.Color(123, 183, 70));
         botonMenuClientes.setForeground(new java.awt.Color(255, 255, 255));
         botonMenuClientes.setText("Clientes");
         botonMenuClientes.addActionListener(new java.awt.event.ActionListener() {
@@ -263,7 +263,7 @@ public class DlgProveedor extends javax.swing.JFrame {
             }
         });
 
-        botonMenuProductos.setBackground(new java.awt.Color(102, 102, 255));
+        botonMenuProductos.setBackground(new java.awt.Color(123, 183, 70));
         botonMenuProductos.setForeground(new java.awt.Color(255, 255, 255));
         botonMenuProductos.setText("Productos");
         botonMenuProductos.addActionListener(new java.awt.event.ActionListener() {
@@ -272,7 +272,7 @@ public class DlgProveedor extends javax.swing.JFrame {
             }
         });
 
-        botonMenuVentas.setBackground(new java.awt.Color(102, 102, 255));
+        botonMenuVentas.setBackground(new java.awt.Color(123, 183, 70));
         botonMenuVentas.setForeground(new java.awt.Color(255, 255, 255));
         botonMenuVentas.setText("Ventas");
         botonMenuVentas.addActionListener(new java.awt.event.ActionListener() {
@@ -281,7 +281,7 @@ public class DlgProveedor extends javax.swing.JFrame {
             }
         });
 
-        botonMenuCategorias.setBackground(new java.awt.Color(102, 102, 255));
+        botonMenuCategorias.setBackground(new java.awt.Color(123, 183, 70));
         botonMenuCategorias.setForeground(new java.awt.Color(255, 255, 255));
         botonMenuCategorias.setText("Categorías");
         botonMenuCategorias.addActionListener(new java.awt.event.ActionListener() {
@@ -290,7 +290,7 @@ public class DlgProveedor extends javax.swing.JFrame {
             }
         });
 
-        botonMenuProveedores.setBackground(new java.awt.Color(102, 102, 255));
+        botonMenuProveedores.setBackground(new java.awt.Color(123, 183, 70));
         botonMenuProveedores.setForeground(new java.awt.Color(255, 255, 255));
         botonMenuProveedores.setText("Proveedores");
         botonMenuProveedores.setEnabled(false);
@@ -300,7 +300,7 @@ public class DlgProveedor extends javax.swing.JFrame {
             }
         });
 
-        botonMenuCompra.setBackground(new java.awt.Color(102, 102, 255));
+        botonMenuCompra.setBackground(new java.awt.Color(123, 183, 70));
         botonMenuCompra.setForeground(new java.awt.Color(255, 255, 255));
         botonMenuCompra.setText("Compra");
         botonMenuCompra.addActionListener(new java.awt.event.ActionListener() {
@@ -348,7 +348,7 @@ public class DlgProveedor extends javax.swing.JFrame {
                     .addComponent(botonMenuVentas, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
-        boton_actualizar.setBackground(new java.awt.Color(102, 102, 255));
+        boton_actualizar.setBackground(new java.awt.Color(123, 183, 70));
         boton_actualizar.setForeground(new java.awt.Color(255, 255, 255));
         boton_actualizar.setText("Actualizar");
         boton_actualizar.addActionListener(new java.awt.event.ActionListener() {
