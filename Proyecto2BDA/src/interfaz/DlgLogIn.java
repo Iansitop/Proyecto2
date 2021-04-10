@@ -6,6 +6,11 @@
 package interfaz;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -13,22 +18,38 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 /**
  *
  * @author Usuario
  */
 public class DlgLogIn extends javax.swing.JFrame {
-
+    FondoPanel fond=new FondoPanel();
     /**
      * Creates new form DlgLogIn
      */
     public DlgLogIn() throws IOException {
+        
         initComponents();
-        ///Imagenes/imagenLogin.jpg
-    
+        usuario.setForeground(Color.WHITE);
+        contraseña.setForeground(Color.WHITE);
+        centraVentana();
     }
-
+    
+    private void centraVentana() {
+    Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+    Dimension frameSize = getSize();
+    if (frameSize.height > screenSize.height) {
+    frameSize.height = screenSize.height;
+    }
+    if (frameSize.width > screenSize.width) {
+    frameSize.width = screenSize.width;
+    }
+    setLocation((screenSize.width - frameSize.width) / 2,
+    (screenSize.height - frameSize.height) / 2);
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -41,6 +62,13 @@ public class DlgLogIn extends javax.swing.JFrame {
         jPasswordField1 = new javax.swing.JPasswordField();
         jTextField1 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
+        javax.swing.JPanel fondo = new FondoPanel();
+        jLabel2 = new javax.swing.JLabel();
+        campoContrasenaContrasena = new javax.swing.JPasswordField();
+        usuario = new javax.swing.JLabel();
+        contraseña = new javax.swing.JLabel();
+        campoTextoUsuario = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
 
         jLabel1.setBackground(new java.awt.Color(255, 204, 153));
         jLabel1.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
@@ -48,25 +76,117 @@ public class DlgLogIn extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/usuario.JPG"))); // NOI18N
+
+        usuario.setBackground(new java.awt.Color(255, 255, 255));
+        usuario.setText("Usuario:");
+
+        contraseña.setBackground(new java.awt.Color(255, 255, 255));
+        contraseña.setText("Contraseña:");
+
+        jButton1.setText("Ingresar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout fondoLayout = new javax.swing.GroupLayout(fondo);
+        fondo.setLayout(fondoLayout);
+        fondoLayout.setHorizontalGroup(
+            fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fondoLayout.createSequentialGroup()
+                .addGap(0, 69, Short.MAX_VALUE)
+                .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(campoContrasenaContrasena, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(fondoLayout.createSequentialGroup()
+                            .addGap(91, 91, 91)
+                            .addComponent(contraseña)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(campoTextoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(69, 69, 69))
+            .addGroup(fondoLayout.createSequentialGroup()
+                .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(fondoLayout.createSequentialGroup()
+                        .addGap(137, 137, 137)
+                        .addComponent(jLabel2))
+                    .addGroup(fondoLayout.createSequentialGroup()
+                        .addGap(168, 168, 168)
+                        .addComponent(usuario))
+                    .addGroup(fondoLayout.createSequentialGroup()
+                        .addGap(151, 151, 151)
+                        .addComponent(jButton1)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        fondoLayout.setVerticalGroup(
+            fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(fondoLayout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addComponent(jLabel2)
+                .addGap(86, 86, 86)
+                .addComponent(usuario)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(campoTextoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39)
+                .addComponent(contraseña)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(campoContrasenaContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(25, 25, 25))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 236, Short.MAX_VALUE)
+            .addComponent(fondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 419, Short.MAX_VALUE)
+            .addComponent(fondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        if(campoTextoUsuario.getText().equalsIgnoreCase("Alma Chavez") && campoContrasenaContrasena.getText().equalsIgnoreCase("123456")){
+            ImageIcon icon=new ImageIcon(getClass().getResource("/Imagenes/felicidades.png"));
+                JOptionPane.showMessageDialog(
+                        null,
+                        "Usuario accediendo...",
+                        "Bienvenido", JOptionPane.INFORMATION_MESSAGE,
+                        icon);
+            new DlgClientes().setVisible(true);
+            dispose();
+        }else{
+            JOptionPane.showMessageDialog(rootPane, "El Usuario o la Contraseña no son válidos","Error",JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    class FondoPanel extends JPanel{
+        private Image imagen;
+        
+        @Override
+        public void paint(Graphics g){
+            imagen=new ImageIcon(getClass().getResource("/Imagenes/imagenLogin.jpg")).getImage();
+            g.drawImage(imagen, 0, 0,getWidth(),getHeight(),this);
+            setOpaque(false);
+            super.paint(g);
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPasswordField campoContrasenaContrasena;
+    private javax.swing.JTextField campoTextoUsuario;
+    private javax.swing.JLabel contraseña;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JLabel usuario;
     // End of variables declaration//GEN-END:variables
 }

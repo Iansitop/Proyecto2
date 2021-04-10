@@ -110,7 +110,7 @@ public class ProveedoresRepository extends BaseRepository<Proveedor> {
         em.getTransaction().begin();
         String query = "SELECT p FROM Proveedor p WHERE p.nombre  LIKE :nombre";
         TypedQuery<Proveedor> q = em.createQuery(query, Proveedor.class);
-        q.setParameter("nombre", nombre);
+        q.setParameter("nombre", "%"+nombre+"%");
         List<Proveedor> listaProveedor = (List<Proveedor>) q.getResultList();
         em.getTransaction().commit();
         return proveedor = new ArrayList(listaProveedor);

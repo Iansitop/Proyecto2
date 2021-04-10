@@ -114,7 +114,7 @@ public class ClientesRepository extends BaseRepository<Cliente> {
         em.getTransaction().begin();
         String query = "SELECT c FROM Cliente c WHERE c.nombre  LIKE :nombre";
         TypedQuery<Cliente> q = em.createQuery(query, Cliente.class);
-        q.setParameter("nombre", "'%"+nombre+"%'");
+        q.setParameter("nombre", "%"+nombre+"%");
         List<Cliente> listaClientes = (List<Cliente>) q.getResultList();
         em.getTransaction().commit();
         return clientes = new ArrayList(listaClientes);

@@ -106,7 +106,7 @@ public class CategoriaRepository extends BaseRepository<Categoria> {
         em.getTransaction().begin();
         String query = "SELECT c FROM Categoria c WHERE c.nombre  LIKE :nombre";
         TypedQuery<Categoria> q = em.createQuery(query, Categoria.class);
-        q.setParameter("nombre", nombre);
+        q.setParameter("nombre", "%"+nombre+"%");
         List<Categoria> listaCategorias = (List<Categoria>) q.getResultList();
         em.getTransaction().commit();
         return categorias = new ArrayList(listaCategorias);

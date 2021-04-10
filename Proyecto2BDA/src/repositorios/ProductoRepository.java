@@ -108,7 +108,7 @@ public class ProductoRepository extends BaseRepository<Producto> {
         em.getTransaction().begin();
         String query = "SELECT p FROM Producto p WHERE p.nombre  LIKE :nombre";
         TypedQuery<Producto> q = em.createQuery(query, Producto.class);
-        q.setParameter("nombre", nombre);
+        q.setParameter("nombre", "%"+nombre+"%");
         List<Producto> listaProductos = (List<Producto>) q.getResultList();
         em.getTransaction().commit();
         return productos=new ArrayList(listaProductos);
