@@ -531,6 +531,8 @@ public class DlgCategorias extends javax.swing.JFrame {
                 int id = Integer.valueOf(campoTextoBuscar.getText());
                 actualizarTabla(c.getCategoriaRepository().buscarCategoriaPorId(id));
             }
+        }else if(campoTextoBuscar.getText().equalsIgnoreCase("")){
+            actualizarTabla(c.getCategoriaRepository().buscarTodos());
         }
     }//GEN-LAST:event_campoTextoBuscarKeyReleased
 

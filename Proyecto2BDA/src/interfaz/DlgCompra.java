@@ -506,7 +506,8 @@ public class DlgCompra extends javax.swing.JFrame {
                 vr.setCantidad(pr.getStock());
                 vr.setMontoTotal(pr.getPrecioactual());
                 vr.setPrecio(vr.getMontoTotal()/pr.getStock());
-                vr.setVenta(c.getVentasRepository().buscarPorId(c.getVentasRepository().buscarTodos().size()-1));
+                vr.setVenta(c.getVentasRepository().buscarPorId(venta.getId()));
+                        //c.getVentasRepository().buscarPorId(c.getVentasRepository().buscarTodos().size()-1)
                 vr.setProducto(c.getProductoRepository().buscarProductoPorNombre(pr.getNombre()).get(0));
                 c.getVentaProductoRepository().guardar(vr);
             }

@@ -5,6 +5,8 @@
  */
 package interfaz;
 
+import java.io.IOException;
+
 /**
  *
  * @author crist
@@ -14,8 +16,8 @@ public class hola {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-       new DlgVentas().setVisible(true);
+    public static void main(String[] args) throws IOException {
+       new DlgLogIn().setVisible(true);
     }
     
 }

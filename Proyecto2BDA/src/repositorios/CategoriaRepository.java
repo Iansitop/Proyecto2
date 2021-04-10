@@ -88,26 +88,28 @@ public class CategoriaRepository extends BaseRepository<Categoria> {
         return categorias = new ArrayList(listaCategorias);
     }
      public ArrayList<Categoria> buscarCategoriaPorId(int id) {
+         ArrayList<Categoria> categorias;
         EntityManager em = createEntityManager();
         em.getTransaction().begin();
         String query = "SELECT c FROM Categoria c WHERE c.id  LIKE :id";
         TypedQuery<Categoria> q = em.createQuery(query, Categoria.class);
         q.setParameter("id", id);
-        List<Categoria> listaC = (List<Categoria>) q.getResultList();
+        List<Categoria> listaCategorias = (List<Categoria>) q.getResultList();
         em.getTransaction().commit();
-        return (ArrayList<Categoria>) listaC;
+        return categorias = new ArrayList(listaCategorias);
 
     }
 
     public ArrayList<Categoria> buscarCategoriaPorNombre(String nombre) {
+        ArrayList<Categoria> categorias;
         EntityManager em = createEntityManager();
         em.getTransaction().begin();
         String query = "SELECT c FROM Categoria c WHERE c.nombre  LIKE :nombre";
         TypedQuery<Categoria> q = em.createQuery(query, Categoria.class);
         q.setParameter("nombre", nombre);
-        List<Categoria> listaC = (List<Categoria>) q.getResultList();
+        List<Categoria> listaCategorias = (List<Categoria>) q.getResultList();
         em.getTransaction().commit();
-        return (ArrayList<Categoria>) listaC;
+        return categorias = new ArrayList(listaCategorias);
 
     }
 }

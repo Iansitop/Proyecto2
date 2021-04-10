@@ -645,6 +645,8 @@ public class DlgProveedor extends javax.swing.JFrame {
                 int id = Integer.valueOf(campoTextoBuscar.getText());
                 actualizarTabla(c.getProveedoresRepository().buscarProveedorPorId(id));
             }
+        }else if(campoTextoBuscar.getText().equalsIgnoreCase("")){
+            actualizarTabla(c.getProveedoresRepository().buscarTodos());
         }
     }//GEN-LAST:event_campoTextoBuscarKeyReleased
 

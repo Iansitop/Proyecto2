@@ -670,6 +670,8 @@ public class DlgClientes extends javax.swing.JFrame {
                 int id = Integer.valueOf(campoTextoBuscar.getText());
                 actualizarTabla(c.getClientesRepository().buscarClientePorId(id));
             }
+        }else if(campoTextoBuscar.getText().equalsIgnoreCase("")){
+            actualizarTabla(c.getClientesRepository().buscarTodos());
         }
     }//GEN-LAST:event_campoTextoBuscarKeyReleased
     

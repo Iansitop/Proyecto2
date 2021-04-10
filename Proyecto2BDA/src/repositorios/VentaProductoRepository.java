@@ -90,6 +90,7 @@ public class VentaProductoRepository extends BaseRepository<VentaProducto>{
     }
     
      public ArrayList<VentaProducto> buscarPorVenta(Venta venta) {
+         ArrayList<VentaProducto> ventaP;
         EntityManager em = createEntityManager();
         em.getTransaction().begin();
         int id = venta.getId();
@@ -97,9 +98,9 @@ public class VentaProductoRepository extends BaseRepository<VentaProducto>{
         String query = "SELECT vp FROM VentaProducto vp JOIN vp.venta v WHERE v.id  = :idVenta";
         TypedQuery<VentaProducto> q = em.createQuery(query, VentaProducto.class);
         q.setParameter("idVenta", id);
-        List<VentaProducto> listaP = (List<VentaProducto>) q.getResultList();
+        List<VentaProducto> listaVentaProducto = (List<VentaProducto>) q.getResultList();
         em.getTransaction().commit();
-        return (ArrayList<VentaProducto>) listaP;
+        return ventaP = new ArrayList(listaVentaProducto);
 
     }
 

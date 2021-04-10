@@ -90,31 +90,28 @@ public class ProductoRepository extends BaseRepository<Producto> {
     }
     
     public ArrayList<Producto> buscarProductoPorId(int id) {
+        ArrayList<Producto> productos;
         EntityManager em = createEntityManager();
         em.getTransaction().begin();
         String query = "SELECT p FROM Producto p WHERE p.id  LIKE :id";
         TypedQuery<Producto> q = em.createQuery(query, Producto.class);
         q.setParameter("id", id);
-        List<Producto> listaP = (List<Producto>) q.getResultList();
+        List<Producto> listaProductos = (List<Producto>) q.getResultList();
         em.getTransaction().commit();
-        return (ArrayList<Producto>) listaP;
+        return productos=new ArrayList(listaProductos);
 
     }
     
     public ArrayList<Producto> buscarProductoPorNombre(String nombre) {
+        ArrayList<Producto> productos;
         EntityManager em = createEntityManager();
         em.getTransaction().begin();
         String query = "SELECT p FROM Producto p WHERE p.nombre  LIKE :nombre";
         TypedQuery<Producto> q = em.createQuery(query, Producto.class);
         q.setParameter("nombre", nombre);
-        List<Producto> listaP = (List<Producto>) q.getResultList();
+        List<Producto> listaProductos = (List<Producto>) q.getResultList();
         em.getTransaction().commit();
-        Collection<Producto> col=new HashSet();
-        for (int i = 0; i < listaP.size(); i++) {
-            col.add(listaP.get(i));
-        }
-        ArrayList<Producto> ar=new ArrayList(col);
-        return ar;
+        return productos=new ArrayList(listaProductos);
 
     }
 }

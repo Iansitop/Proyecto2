@@ -488,7 +488,7 @@ public class DlgVentas extends javax.swing.JFrame {
         String m = f.substring(5, 7);
         String d = f.substring(8, 10);
         int dia = Integer.valueOf(d);
-        int mes = Integer.valueOf(m);
+        int mes = Integer.valueOf(m)-1;
         int anio = Integer.valueOf(a)-1900;
         return new Date(anio, mes, dia);
     }
@@ -499,7 +499,7 @@ public class DlgVentas extends javax.swing.JFrame {
         String m = f.substring(5, 7);
         String d = f.substring(8, 10);
         int dia = Integer.valueOf(d);
-        int mes = Integer.valueOf(m);
+        int mes = Integer.valueOf(m)-1;
         int anio = Integer.valueOf(a)-1900;
         return new Date(anio, mes, dia);
     }

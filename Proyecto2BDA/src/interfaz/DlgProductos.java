@@ -703,6 +703,8 @@ public class DlgProductos extends javax.swing.JFrame {
                 int id = Integer.valueOf(campoTextoBuscar.getText());
                 actualizarTabla(c.getProductoRepository().buscarProductoPorId(id));
             }
+        }else if(campoTextoBuscar.getText().equalsIgnoreCase("")){
+            actualizarTabla(c.getProductoRepository().buscarTodos());
         }
     }//GEN-LAST:event_campoTextoBuscarKeyReleased
 

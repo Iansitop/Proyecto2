@@ -94,18 +94,20 @@ public class VentasRepository extends BaseRepository<Venta> {
     }
 
     public ArrayList<Venta> buscarPorfecha(Date fecha1, Date fecha2) {
+         ArrayList<Venta> venta;
         EntityManager em = createEntityManager();
         em.getTransaction().begin();
         String query = "SELECT v FROM Venta v WHERE v.fecha BETWEEN :fecha1 AND :fecha2 ";
         TypedQuery<Venta> q = em.createQuery(query, Venta.class);
         q.setParameter("fecha1", fecha1, TemporalType.DATE);
         q.setParameter("fecha2", fecha2, TemporalType.DATE);
-        List<Venta> ventas = (List<Venta>) q.getResultList();
+        List<Venta> listaVentas = (List<Venta>) q.getResultList();
         em.getTransaction().commit();
-        return (ArrayList<Venta>) ventas;
+        return venta = new ArrayList(listaVentas);
     }
 
     public ArrayList<Venta> buscarPorCliente(Cliente cliente, Date fecha1, Date fecha2) {
+         ArrayList<Venta> venta;
         EntityManager em = createEntityManager();
         em.getTransaction().begin();
         int id = cliente.getId();
@@ -115,9 +117,9 @@ public class VentasRepository extends BaseRepository<Venta> {
         q.setParameter("idCliente", id);
         q.setParameter("fecha1", fecha1, TemporalType.DATE);
         q.setParameter("fecha2", fecha2, TemporalType.DATE);
-        List<Venta> list = (List<Venta>) q.getResultList();
+        List<Venta> listaVentas = (List<Venta>) q.getResultList();
         em.getTransaction().commit();
-        return (ArrayList<Venta>) list;
+        return venta = new ArrayList(listaVentas);
 
     }
 }
