@@ -512,8 +512,10 @@ public class DlgCompra extends javax.swing.JFrame {
                 c.getVentaProductoRepository().guardar(vr);
             }
             boton_limpiarActionPerformed(evt);
+            campoTextoCantidadVentanilla.setText("0");
+            campoTextoSubTotalVentanilla.setText("0");
         }
-        actualizarTabla(carrito);
+        actualizarTabla(new ArrayList());
     }//GEN-LAST:event_botonPagarActionPerformed
 
     private void boton_limpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_limpiarActionPerformed
